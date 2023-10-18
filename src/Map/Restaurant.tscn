@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://c85xh3adubff8"]
+
+[ext_resource type="PackedScene" uid="uid://dbjk0j45moc6g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/door_A.gltf" id="3_35e58"]
+[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://src/Player/Player.tscn" id="4_le3v1"]
+[ext_resource type="MeshLibrary" uid="uid://uutgoc4olpnm" path="res://src/Map/KitchenMeshLibrary.tres" id="7_84qfx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sd0l5"]
+size = Vector3(30, 1, 22)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_thyy4"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_thyy4")
+
+[sub_resource type="Environment" id="Environment_4bfw8"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
+[sub_resource type="BoxMesh" id="BoxMesh_q6syv"]
+size = Vector3(30, 0.5, 30)
+
+[node name="Restaurant" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("4_le3v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.455146, 1.93414, 5.7184)
+
+[node name="Area3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_sd0l5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4bfw8")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
+light_energy = 1.232
+light_indirect_energy = 0.884
+light_volumetric_fog_energy = 0.768
+shadow_enabled = true
+
+[node name="FloorGridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("7_84qfx")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 65535, 24, 1, 65535, 24, 2, 65535, 24, 3, 65535, 24, 4, 65535, 24, 5, 65535, 24, 6, 65535, 24, 7, 65535, 24, 8, 65535, 24, 9, 65535, 24, 10, 65535, 24, 11, 65535, 24, 4, 1, 24, 65535, 65535, 24, 65535, 0, 24, 65535, 1, 24, 65535, 2, 24, 65535, 3, 24, 65535, 4, 24, 65535, 5, 24, 65535, 6, 24, 65535, 7, 24, 65535, 8, 24, 0, 0, 24, 0, 1, 24, 0, 2, 24, 0, 3, 24, 0, 4, 24, 0, 5, 24, 0, 6, 24, 0, 7, 24, 0, 8, 24, 1, 0, 24, 1, 1, 24, 1, 2, 24, 1, 3, 24, 1, 4, 24, 1, 5, 24, 1, 6, 24, 1, 7, 24, 1, 8, 24, 2, 0, 24, 2, 1, 24, 2, 2, 24, 2, 3, 24, 2, 4, 24, 2, 5, 24, 2, 6, 24, 2, 7, 24, 2, 8, 24, 3, 0, 24, 3, 1, 24, 3, 2, 24, 3, 3, 24, 3, 4, 24, 3, 5, 24, 3, 6, 24, 3, 7, 24, 3, 8, 24, 4, 0, 24, 4, 2, 24, 4, 3, 24, 4, 4, 24, 4, 5, 24, 4, 6, 24, 4, 7, 24, 4, 8, 24, 5, 0, 24, 5, 1, 24, 5, 2, 24, 5, 3, 24, 5, 4, 24, 5, 5, 24, 5, 6, 24, 5, 7, 24, 5, 8, 24, 6, 0, 24, 6, 1, 24, 6, 3, 24, 6, 4, 24, 6, 5, 24, 6, 6, 24, 6, 7, 24, 6, 8, 24, 7, 0, 24, 7, 1, 24, 7, 3, 24, 7, 4, 24, 7, 5, 24, 7, 6, 24, 7, 7, 24, 7, 8, 24, 8, 0, 24, 8, 1, 24, 8, 2, 24, 8, 3, 24, 8, 4, 24, 8, 5, 24, 8, 6, 24, 8, 7, 24, 8, 8, 24, 9, 0, 24, 9, 1, 24, 9, 2, 24, 9, 3, 24, 9, 4, 24, 9, 5, 24, 9, 6, 24, 9, 7, 24, 9, 8, 24, 10, 0, 24, 10, 1, 24, 10, 2, 24, 10, 3, 24, 10, 4, 24, 10, 5, 24, 10, 6, 24, 10, 7, 24, 10, 8, 24, 11, 0, 24, 11, 1, 24, 11, 2, 24, 11, 3, 24, 11, 4, 24, 11, 5, 24, 11, 6, 24, 11, 7, 24, 11, 8, 24, 12, 65535, 24, 12, 0, 24, 12, 1, 24, 12, 2, 24, 12, 3, 24, 12, 4, 24, 12, 5, 24, 12, 6, 24, 12, 7, 24, 12, 8, 24, 6, 2, 24, 7, 2, 24)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("7_84qfx")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65535, 17, 136, 3, 17, 136, 7, 17, 136, 11, 17, 655498, 15, 17, 136, 19, 17, 136, 23, 17, 136, 25, 15, 1441928, 25, 11, 1441928, 25, 3, 1441928, 25, 65535, 1441928, 65533, 65535, 1441928, 65533, 3, 1441928, 65533, 15, 1441928, 65535, 65533, 655496, 3, 65533, 655496, 11, 65533, 655496, 19, 65533, 655496, 23, 65533, 655496, 15, 65533, 142, 65516, 18, 1441934, 65533, 7, 1441934, 25, 7, 1441934, 7, 65533, 655502, 65533, 11, 1048712)
+}
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 3.96811, 2.50899)
+visible = false
+mesh = SubResource("BoxMesh_q6syv")
+
+[node name="door_A" parent="." instance=ExtResource("3_35e58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2, 0, 17)

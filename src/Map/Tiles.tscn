@@ -1,0 +1,436 @@
+[gd_scene load_steps=145 format=3 uid="uid://ci4o3ql774qg8"]
+
+[ext_resource type="PackedScene" uid="uid://bx3hph15mj4wr" path="res://addons/kaykit_restaurant_bits/Assets/gltf/bowl.gltf" id="1_axkgo"]
+[ext_resource type="PackedScene" uid="uid://dujmvmqqb48je" path="res://addons/kaykit_restaurant_bits/Assets/gltf/bowl_dirty.gltf" id="2_dt3yp"]
+[ext_resource type="PackedScene" uid="uid://bv6cy7qy14bwv" path="res://addons/kaykit_restaurant_bits/Assets/gltf/bowl_small.gltf" id="3_u4y30"]
+[ext_resource type="PackedScene" uid="uid://ctbqiantos75d" path="res://addons/kaykit_restaurant_bits/Assets/gltf/chair_A.gltf" id="4_62leu"]
+[ext_resource type="PackedScene" uid="uid://boehx21s6tq1w" path="res://addons/kaykit_restaurant_bits/Assets/gltf/chair_B.gltf" id="5_473rn"]
+[ext_resource type="PackedScene" uid="uid://dm3pwdt5ituae" path="res://addons/kaykit_restaurant_bits/Assets/gltf/chair_stool.gltf" id="6_lpwa7"]
+[ext_resource type="PackedScene" uid="uid://bvf8ctb3pkp2s" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate.gltf" id="7_n87b7"]
+[ext_resource type="PackedScene" uid="uid://tc72qdrfv2fh" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_buns.gltf" id="8_8iwse"]
+[ext_resource type="PackedScene" uid="uid://c14wp7j8ib1gd" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_carrots.gltf" id="9_pgqw4"]
+[ext_resource type="PackedScene" uid="uid://cexs6i4k1vyup" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_cheese.gltf" id="10_kfqor"]
+[ext_resource type="PackedScene" uid="uid://b8ifnuuknoq15" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_ham.gltf" id="11_bw0j5"]
+[ext_resource type="PackedScene" uid="uid://bupgu82hdju3g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_lettuce.gltf" id="12_my4nh"]
+[ext_resource type="PackedScene" uid="uid://c1tx8n3pdjjj" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_lid.gltf" id="13_76c0v"]
+[ext_resource type="PackedScene" uid="uid://bcqx5x5u6eakb" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_onions.gltf" id="14_mfk4c"]
+[ext_resource type="PackedScene" uid="uid://dp5swjxqj1o55" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_potatoes.gltf" id="15_18x7x"]
+[ext_resource type="PackedScene" uid="uid://cfh2beuvgdbdf" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_steak.gltf" id="16_xvmma"]
+[ext_resource type="PackedScene" uid="uid://d2whchfph2jer" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_tomatoes.gltf" id="17_d43mw"]
+[ext_resource type="PackedScene" uid="uid://u5bx18p6ibm5" path="res://addons/kaykit_restaurant_bits/Assets/gltf/cuttingboard.gltf" id="18_hcdf7"]
+[ext_resource type="PackedScene" uid="uid://cfv7ejkcj2p56" path="res://addons/kaykit_restaurant_bits/Assets/gltf/dishrack.gltf" id="19_rhgar"]
+[ext_resource type="PackedScene" uid="uid://b1e3w0j48k06m" path="res://addons/kaykit_restaurant_bits/Assets/gltf/dishrack_plates.gltf" id="20_vma2o"]
+[ext_resource type="PackedScene" uid="uid://dbjk0j45moc6g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/door_A.gltf" id="21_1jsun"]
+[ext_resource type="PackedScene" uid="uid://dsr02hci7awwx" path="res://addons/kaykit_restaurant_bits/Assets/gltf/door_B.gltf" id="22_da6xw"]
+[ext_resource type="PackedScene" uid="uid://gnvs6la5ocuy" path="res://addons/kaykit_restaurant_bits/Assets/gltf/extractorhood.gltf" id="23_tcxxw"]
+[ext_resource type="PackedScene" uid="uid://dpifejojpkb2y" path="res://addons/kaykit_restaurant_bits/Assets/gltf/floor_kitchen.gltf" id="24_d0nby"]
+[ext_resource type="PackedScene" uid="uid://cfi622kxipnlk" path="res://addons/kaykit_restaurant_bits/Assets/gltf/floor_kitchen_small.gltf" id="25_rg1l8"]
+[ext_resource type="PackedScene" uid="uid://cqphkd77hihx0" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_burger.gltf" id="26_7f4ch"]
+[ext_resource type="PackedScene" uid="uid://rki8mml3ubjc" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_dinner.gltf" id="27_gx0vs"]
+[ext_resource type="PackedScene" uid="uid://bftdqr5nlay5g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_bun.gltf" id="28_52yga"]
+[ext_resource type="PackedScene" uid="uid://c6eco7bojna6r" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_bun_bottom.gltf" id="29_o2gcq"]
+[ext_resource type="PackedScene" uid="uid://b236x3rcepfi2" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_bun_top.gltf" id="30_rqfm2"]
+[ext_resource type="PackedScene" uid="uid://b8wdc3p26uftl" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_burger_cooked.gltf" id="31_6rihc"]
+[ext_resource type="PackedScene" uid="uid://0s821rd6dd3f" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_burger_trash.gltf" id="32_vj2an"]
+[ext_resource type="PackedScene" uid="uid://dym1lfga3lt50" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_burger_uncooked.gltf" id="33_x0lrm"]
+[ext_resource type="PackedScene" uid="uid://cortu65i04j7y" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_carrot.gltf" id="34_jbo0i"]
+[ext_resource type="PackedScene" uid="uid://brrqhis7cts13" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_carrot_chopped.gltf" id="35_akqjh"]
+[ext_resource type="PackedScene" uid="uid://ckh2hs0mp3sxm" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_carrot_pieces.gltf" id="36_p8l4t"]
+[ext_resource type="PackedScene" uid="uid://dpl2b5x4ayq4w" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_cheese.gltf" id="37_taxpy"]
+[ext_resource type="PackedScene" uid="uid://dldtkvbylv3d8" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_cheese_chopped.gltf" id="38_kyj05"]
+[ext_resource type="PackedScene" uid="uid://c6d4wbh58yurg" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_cheese_slice.gltf" id="39_duxnl"]
+[ext_resource type="PackedScene" uid="uid://c864sgtq6s7uw" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_ham.gltf" id="40_otkbr"]
+[ext_resource type="PackedScene" uid="uid://darh3hwt0bbnt" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_ham_cooked.gltf" id="41_ni1sl"]
+[ext_resource type="PackedScene" uid="uid://b1nwyrq51t078" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_ham_trash.gltf" id="42_xpiow"]
+[ext_resource type="PackedScene" uid="uid://ceveyutrc75ga" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_lettuce.gltf" id="43_do0tk"]
+[ext_resource type="PackedScene" uid="uid://dy1ra4b4gin2f" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_lettuce_chopped.gltf" id="44_b1jxp"]
+[ext_resource type="PackedScene" uid="uid://hof78041swtd" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_lettuce_slice.gltf" id="45_5wnf5"]
+[ext_resource type="PackedScene" uid="uid://ckj5r0mbelaw3" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_onion.gltf" id="46_l0fpu"]
+[ext_resource type="PackedScene" uid="uid://cajysvbwys3fl" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_onion_chopped.gltf" id="47_60qx4"]
+[ext_resource type="PackedScene" uid="uid://chwcc07ppawfh" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_onion_rings.gltf" id="48_o7kc1"]
+[ext_resource type="PackedScene" uid="uid://bdssftcokmyes" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_potato.gltf" id="49_biv1b"]
+[ext_resource type="PackedScene" uid="uid://rm544jkjbea2" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_potato_chopped.gltf" id="50_ogre4"]
+[ext_resource type="PackedScene" uid="uid://g7bje3uxo3ho" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_potato_mashed.gltf" id="51_0pqs2"]
+[ext_resource type="PackedScene" uid="uid://bwoav5jhel83b" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_steak.gltf" id="52_k6cqo"]
+[ext_resource type="PackedScene" uid="uid://dntj1rs0p05nq" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_steak_pieces.gltf" id="53_yjfhc"]
+[ext_resource type="PackedScene" uid="uid://dwwwh5c2x21af" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_tomato.gltf" id="54_t4wrv"]
+[ext_resource type="PackedScene" uid="uid://b3golutauw82u" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_tomato_slice.gltf" id="55_3g88k"]
+[ext_resource type="PackedScene" uid="uid://b4evxi8b180c6" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_tomato_slices.gltf" id="56_07573"]
+[ext_resource type="PackedScene" uid="uid://dpp1kfia0gx7a" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_vegetableburger_cooked.gltf" id="57_3ax0o"]
+[ext_resource type="PackedScene" uid="uid://c2d87ya7uowp" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_vegetableburger_uncooked.gltf" id="58_gxcj4"]
+[ext_resource type="PackedScene" uid="uid://mnqoh2i1cx4y" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_stew.gltf" id="59_4ws6q"]
+[ext_resource type="PackedScene" uid="uid://dkij0xswm0py2" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_vegetableburger.gltf" id="60_f4ds4"]
+[ext_resource type="PackedScene" uid="uid://vfs6khql1lqt" path="res://addons/kaykit_restaurant_bits/Assets/gltf/fridge_A.gltf" id="61_tay7f"]
+[ext_resource type="PackedScene" uid="uid://dgw4emfg4o2b3" path="res://addons/kaykit_restaurant_bits/Assets/gltf/fridge_A_decorated.gltf" id="62_m63xg"]
+[ext_resource type="PackedScene" uid="uid://bou1l5pq73w7s" path="res://addons/kaykit_restaurant_bits/Assets/gltf/fridge_B.gltf" id="63_ebwae"]
+[ext_resource type="PackedScene" uid="uid://cajwaqxd4lhec" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_A_large.gltf" id="64_n5p0u"]
+[ext_resource type="PackedScene" uid="uid://3vh4h6bxk47n" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_A_medium.gltf" id="65_hiby0"]
+[ext_resource type="PackedScene" uid="uid://46mqibv3jwtk" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_A_small.gltf" id="66_gwae3"]
+[ext_resource type="PackedScene" uid="uid://d06bl4d1mg7lc" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_B_large.gltf" id="67_3ipg3"]
+[ext_resource type="PackedScene" uid="uid://214gde8pawwe" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_B_medium.gltf" id="68_vhda8"]
+[ext_resource type="PackedScene" uid="uid://c6uxedqbduq8q" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_B_small.gltf" id="69_x2lul"]
+[ext_resource type="PackedScene" uid="uid://bupeu22e4c6rg" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_C_large.gltf" id="70_xwgw7"]
+[ext_resource type="PackedScene" uid="uid://bdehfggvrwlvs" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_C_medium.gltf" id="71_g785e"]
+[ext_resource type="PackedScene" uid="uid://bi1ntdwqkbb0" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_C_small.gltf" id="72_pevjr"]
+[ext_resource type="PackedScene" uid="uid://be01leg8dm270" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_D_large.gltf" id="73_m8x0h"]
+[ext_resource type="PackedScene" uid="uid://dtf526ola28bg" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_D_medium.gltf" id="74_6cyfi"]
+[ext_resource type="PackedScene" uid="uid://b1deotl5uq72m" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_D_small.gltf" id="75_wpxcj"]
+[ext_resource type="PackedScene" uid="uid://doo0amjadcun5" path="res://addons/kaykit_restaurant_bits/Assets/gltf/ketchup.gltf" id="76_kk7b5"]
+[ext_resource type="PackedScene" uid="uid://4utdts0or6vo" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencabinet.gltf" id="77_hy0fg"]
+[ext_resource type="PackedScene" uid="uid://bjxyntlqygnpj" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencabinet_corner.gltf" id="78_uhmo1"]
+[ext_resource type="PackedScene" uid="uid://q1s4q7mbai1r" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencabinet_corner_half.gltf" id="79_wy6w8"]
+[ext_resource type="PackedScene" uid="uid://b8l0q2lwj4pv" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencabinet_half.gltf" id="80_vdyc5"]
+[ext_resource type="PackedScene" uid="uid://cb3g88muvoxrq" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_innercorner.gltf" id="81_e5fti"]
+[ext_resource type="PackedScene" uid="uid://01ycgw3aa076" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_innercorner_backsplash.gltf" id="82_kekf5"]
+[ext_resource type="PackedScene" uid="uid://c51vuhuepnc8d" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_outercorner.gltf" id="83_3cdey"]
+[ext_resource type="PackedScene" uid="uid://dir30b28sbm8f" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_outercorner_backsplash.gltf" id="84_nfu5w"]
+[ext_resource type="PackedScene" uid="uid://b8siaev62go5u" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_sink.gltf" id="85_gwsn1"]
+[ext_resource type="PackedScene" uid="uid://cgnjyv6s4efuw" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_sink_backsplash.gltf" id="86_eednt"]
+[ext_resource type="PackedScene" uid="uid://cb0r26ql76e3d" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_straight_A.gltf" id="87_wriat"]
+[ext_resource type="PackedScene" uid="uid://b4c6d746qaugv" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_straight_A_backsplash.gltf" id="88_y0frw"]
+[ext_resource type="PackedScene" uid="uid://yv00tpsua1t0" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_straight_A_decorated.gltf" id="89_1e0l5"]
+[ext_resource type="PackedScene" uid="uid://cwmehw6nsosl1" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_straight_B.gltf" id="90_oucfk"]
+[ext_resource type="PackedScene" uid="uid://cn87nr506o7xd" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_straight_B_backsplash.gltf" id="91_rgou8"]
+[ext_resource type="PackedScene" uid="uid://c7r65taagse1a" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchencounter_straight_decorated.gltf" id="92_p7o83"]
+[ext_resource type="PackedScene" uid="uid://bejwmjxfyhi60" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_A.gltf" id="93_bkx40"]
+[ext_resource type="PackedScene" uid="uid://c0eylqmgalhi3" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_A_large.gltf" id="94_46vtu"]
+[ext_resource type="PackedScene" uid="uid://c6ejpyqxh10ta" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_A_large_decorated.gltf" id="95_av82f"]
+[ext_resource type="PackedScene" uid="uid://xguy5ajsedid" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_B.gltf" id="96_wujsn"]
+[ext_resource type="PackedScene" uid="uid://cd8fik88wx81f" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_B_large.gltf" id="97_qfob0"]
+[ext_resource type="PackedScene" uid="uid://ltlpgojfko6h" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_sink.gltf" id="98_3vqmk"]
+[ext_resource type="PackedScene" uid="uid://bmwgts4r3gq0l" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_sink_large.gltf" id="99_bd7oo"]
+[ext_resource type="PackedScene" uid="uid://61vhvkk4vru5" path="res://addons/kaykit_restaurant_bits/Assets/gltf/kitchentable_sink_large_decorated.gltf" id="100_o28ao"]
+[ext_resource type="PackedScene" uid="uid://leg6q5tdhw62" path="res://addons/kaykit_restaurant_bits/Assets/gltf/knife.gltf" id="101_l5hkg"]
+[ext_resource type="PackedScene" uid="uid://c27rc3lsbno0g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/lid_A.gltf" id="102_8kod2"]
+[ext_resource type="PackedScene" uid="uid://bu2ktui3ldm8d" path="res://addons/kaykit_restaurant_bits/Assets/gltf/lid_B.gltf" id="103_y2dya"]
+[ext_resource type="PackedScene" uid="uid://daesxapa1qeq8" path="res://addons/kaykit_restaurant_bits/Assets/gltf/lid_large.gltf" id="104_duu5j"]
+[ext_resource type="PackedScene" uid="uid://bur4twcgei3ge" path="res://addons/kaykit_restaurant_bits/Assets/gltf/menu.gltf" id="105_l1ca1"]
+[ext_resource type="PackedScene" uid="uid://srrvq5pwt6ub" path="res://addons/kaykit_restaurant_bits/Assets/gltf/mustard.gltf" id="106_fbg1r"]
+[ext_resource type="PackedScene" uid="uid://cvwojxgn5ikep" path="res://addons/kaykit_restaurant_bits/Assets/gltf/oven.gltf" id="107_ohmo5"]
+[ext_resource type="PackedScene" uid="uid://bf3w65uaujf4m" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pan_006.gltf" id="108_0o42o"]
+[ext_resource type="PackedScene" uid="uid://bagt1erae0xvu" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pan_A.gltf" id="109_xnt1j"]
+[ext_resource type="PackedScene" uid="uid://edxkwp7jjsof" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pan_B.gltf" id="110_6nw0y"]
+[ext_resource type="PackedScene" uid="uid://ycxu1h2bqwrs" path="res://addons/kaykit_restaurant_bits/Assets/gltf/papertowel.gltf" id="111_l111h"]
+[ext_resource type="PackedScene" uid="uid://ctdj70nyxeqba" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pillar_A.gltf" id="112_aovlg"]
+[ext_resource type="PackedScene" uid="uid://cic3wg2uka2iu" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pillar_B.gltf" id="113_0jjab"]
+[ext_resource type="PackedScene" uid="uid://bi6u0jxnn2t6y" path="res://addons/kaykit_restaurant_bits/Assets/gltf/plate.gltf" id="114_pda3l"]
+[ext_resource type="PackedScene" uid="uid://clijwtnsabig1" path="res://addons/kaykit_restaurant_bits/Assets/gltf/plate_dirty.gltf" id="115_2jf2r"]
+[ext_resource type="PackedScene" uid="uid://clrk230jiktcl" path="res://addons/kaykit_restaurant_bits/Assets/gltf/plate_small.gltf" id="116_2buo6"]
+[ext_resource type="PackedScene" uid="uid://gxr1x0ibukg" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pot_A.gltf" id="117_eeaok"]
+[ext_resource type="PackedScene" uid="uid://dj1chp8k81s5a" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pot_A_stew.gltf" id="118_m6p76"]
+[ext_resource type="PackedScene" uid="uid://dl51mft0130lc" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pot_B.gltf" id="119_t0301"]
+[ext_resource type="PackedScene" uid="uid://bedb57g1aesrb" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pot_B_stew.gltf" id="120_bnnng"]
+[ext_resource type="PackedScene" uid="uid://shjcg0rhd3jp" path="res://addons/kaykit_restaurant_bits/Assets/gltf/pot_large.gltf" id="121_8eoih"]
+[ext_resource type="PackedScene" uid="uid://brm0w7rc8j6v" path="res://addons/kaykit_restaurant_bits/Assets/gltf/shelf_papertowel.gltf" id="122_0043y"]
+[ext_resource type="PackedScene" uid="uid://8lhgbjh388jy" path="res://addons/kaykit_restaurant_bits/Assets/gltf/shelf_papertowel_decorated.gltf" id="123_dir2d"]
+[ext_resource type="PackedScene" uid="uid://b2ehdip6e2m3g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/stew_bowl.gltf" id="124_0lmg7"]
+[ext_resource type="PackedScene" uid="uid://bba3pp0ktidt0" path="res://addons/kaykit_restaurant_bits/Assets/gltf/stew_pot.gltf" id="125_64hjs"]
+[ext_resource type="PackedScene" uid="uid://dyffdsgtjxqdr" path="res://addons/kaykit_restaurant_bits/Assets/gltf/stove_multi.gltf" id="126_27elv"]
+[ext_resource type="PackedScene" uid="uid://c18xro74lxa7r" path="res://addons/kaykit_restaurant_bits/Assets/gltf/stove_multi_countertop.gltf" id="127_0cmwt"]
+[ext_resource type="PackedScene" uid="uid://rqqxb8my41wv" path="res://addons/kaykit_restaurant_bits/Assets/gltf/stove_multi_decorated.gltf" id="128_ticvg"]
+[ext_resource type="PackedScene" uid="uid://beew2k3056xe8" path="res://addons/kaykit_restaurant_bits/Assets/gltf/stove_single.gltf" id="129_fte03"]
+[ext_resource type="PackedScene" uid="uid://ciovs76ixqu2d" path="res://addons/kaykit_restaurant_bits/Assets/gltf/stove_single_countertop.gltf" id="130_eclmh"]
+[ext_resource type="PackedScene" uid="uid://c25mp8qjom80p" path="res://addons/kaykit_restaurant_bits/Assets/gltf/table_round_A.gltf" id="131_ybfmd"]
+[ext_resource type="PackedScene" uid="uid://b4xcl76kv6uyv" path="res://addons/kaykit_restaurant_bits/Assets/gltf/table_round_A_decorated.gltf" id="132_f2b8p"]
+[ext_resource type="PackedScene" uid="uid://5g17y06yvd5m" path="res://addons/kaykit_restaurant_bits/Assets/gltf/table_round_A_small.gltf" id="133_7p4fe"]
+[ext_resource type="PackedScene" uid="uid://ufqn5comwart" path="res://addons/kaykit_restaurant_bits/Assets/gltf/table_round_A_small_decorated.gltf" id="134_8d5up"]
+[ext_resource type="PackedScene" uid="uid://x50noty2dd0n" path="res://addons/kaykit_restaurant_bits/Assets/gltf/table_round_B.gltf" id="135_bh7q2"]
+[ext_resource type="PackedScene" uid="uid://ds6151vi6kiua" path="res://addons/kaykit_restaurant_bits/Assets/gltf/towelrail.gltf" id="136_5etp8"]
+[ext_resource type="PackedScene" uid="uid://bb43b6gcxkh1l" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall.gltf" id="137_e2bh4"]
+[ext_resource type="PackedScene" uid="uid://hkyerjhbqiy3" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall_decorated.gltf" id="138_h8k38"]
+[ext_resource type="PackedScene" uid="uid://c4bmis3xwh3lp" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall_doorway.gltf" id="139_ro3x6"]
+[ext_resource type="PackedScene" uid="uid://i8il7lsrsrwb" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall_half.gltf" id="140_e2i2x"]
+[ext_resource type="PackedScene" uid="uid://dh88utpql4bgx" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall_orderwindow.gltf" id="141_om36n"]
+[ext_resource type="PackedScene" uid="uid://bbkpx5ur6ywpm" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall_orderwindow_decorated.gltf" id="142_xxcwu"]
+[ext_resource type="PackedScene" uid="uid://cgyl0e6hppo2m" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall_window_closed.gltf" id="143_n24d4"]
+[ext_resource type="PackedScene" uid="uid://c2yjao42jniov" path="res://addons/kaykit_restaurant_bits/Assets/gltf/wall_window_open.gltf" id="144_ybikl"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="bowl" parent="." instance=ExtResource("1_axkgo")]
+
+[node name="bowl_dirty" parent="." instance=ExtResource("2_dt3yp")]
+
+[node name="bowl_small" parent="." instance=ExtResource("3_u4y30")]
+
+[node name="chair_A" parent="." instance=ExtResource("4_62leu")]
+
+[node name="chair_B" parent="." instance=ExtResource("5_473rn")]
+
+[node name="chair_stool" parent="." instance=ExtResource("6_lpwa7")]
+
+[node name="crate" parent="." instance=ExtResource("7_n87b7")]
+
+[node name="crate_buns" parent="." instance=ExtResource("8_8iwse")]
+
+[node name="crate_carrots" parent="." instance=ExtResource("9_pgqw4")]
+
+[node name="crate_cheese" parent="." instance=ExtResource("10_kfqor")]
+
+[node name="crate_ham" parent="." instance=ExtResource("11_bw0j5")]
+
+[node name="crate_lettuce" parent="." instance=ExtResource("12_my4nh")]
+
+[node name="crate_lid" parent="." instance=ExtResource("13_76c0v")]
+
+[node name="crate_onions" parent="." instance=ExtResource("14_mfk4c")]
+
+[node name="crate_potatoes" parent="." instance=ExtResource("15_18x7x")]
+
+[node name="crate_steak" parent="." instance=ExtResource("16_xvmma")]
+
+[node name="crate_tomatoes" parent="." instance=ExtResource("17_d43mw")]
+
+[node name="cuttingboard" parent="." instance=ExtResource("18_hcdf7")]
+
+[node name="dishrack" parent="." instance=ExtResource("19_rhgar")]
+
+[node name="dishrack_plates" parent="." instance=ExtResource("20_vma2o")]
+
+[node name="door_A" parent="." instance=ExtResource("21_1jsun")]
+
+[node name="door_B" parent="." instance=ExtResource("22_da6xw")]
+
+[node name="extractorhood" parent="." instance=ExtResource("23_tcxxw")]
+
+[node name="floor_kitchen" parent="." instance=ExtResource("24_d0nby")]
+
+[node name="floor_kitchen_small" parent="." instance=ExtResource("25_rg1l8")]
+
+[node name="food_burger" parent="." instance=ExtResource("26_7f4ch")]
+
+[node name="food_dinner" parent="." instance=ExtResource("27_gx0vs")]
+
+[node name="food_ingredient_bun" parent="." instance=ExtResource("28_52yga")]
+
+[node name="food_ingredient_bun_bottom" parent="." instance=ExtResource("29_o2gcq")]
+
+[node name="food_ingredient_bun_top" parent="." instance=ExtResource("30_rqfm2")]
+
+[node name="food_ingredient_burger_cooked" parent="." instance=ExtResource("31_6rihc")]
+
+[node name="food_ingredient_burger_trash" parent="." instance=ExtResource("32_vj2an")]
+
+[node name="food_ingredient_burger_uncooked" parent="." instance=ExtResource("33_x0lrm")]
+
+[node name="food_ingredient_carrot" parent="." instance=ExtResource("34_jbo0i")]
+
+[node name="food_ingredient_carrot_chopped" parent="." instance=ExtResource("35_akqjh")]
+
+[node name="food_ingredient_carrot_pieces" parent="." instance=ExtResource("36_p8l4t")]
+
+[node name="food_ingredient_cheese" parent="." instance=ExtResource("37_taxpy")]
+
+[node name="food_ingredient_cheese_chopped" parent="." instance=ExtResource("38_kyj05")]
+
+[node name="food_ingredient_cheese_slice" parent="." instance=ExtResource("39_duxnl")]
+
+[node name="food_ingredient_ham" parent="." instance=ExtResource("40_otkbr")]
+
+[node name="food_ingredient_ham_cooked" parent="." instance=ExtResource("41_ni1sl")]
+
+[node name="food_ingredient_ham_trash" parent="." instance=ExtResource("42_xpiow")]
+
+[node name="food_ingredient_lettuce" parent="." instance=ExtResource("43_do0tk")]
+
+[node name="food_ingredient_lettuce_chopped" parent="." instance=ExtResource("44_b1jxp")]
+
+[node name="food_ingredient_lettuce_slice" parent="." instance=ExtResource("45_5wnf5")]
+
+[node name="food_ingredient_onion" parent="." instance=ExtResource("46_l0fpu")]
+
+[node name="food_ingredient_onion_chopped" parent="." instance=ExtResource("47_60qx4")]
+
+[node name="food_ingredient_onion_rings" parent="." instance=ExtResource("48_o7kc1")]
+
+[node name="food_ingredient_potato" parent="." instance=ExtResource("49_biv1b")]
+
+[node name="food_ingredient_potato_chopped" parent="." instance=ExtResource("50_ogre4")]
+
+[node name="food_ingredient_potato_mashed" parent="." instance=ExtResource("51_0pqs2")]
+
+[node name="food_ingredient_steak" parent="." instance=ExtResource("52_k6cqo")]
+
+[node name="food_ingredient_steak_pieces" parent="." instance=ExtResource("53_yjfhc")]
+
+[node name="food_ingredient_tomato" parent="." instance=ExtResource("54_t4wrv")]
+
+[node name="food_ingredient_tomato_slice" parent="." instance=ExtResource("55_3g88k")]
+
+[node name="food_ingredient_tomato_slices" parent="." instance=ExtResource("56_07573")]
+
+[node name="food_ingredient_vegetableburger_cooked" parent="." instance=ExtResource("57_3ax0o")]
+
+[node name="food_ingredient_vegetableburger_uncooked" parent="." instance=ExtResource("58_gxcj4")]
+
+[node name="food_stew" parent="." instance=ExtResource("59_4ws6q")]
+
+[node name="food_vegetableburger" parent="." instance=ExtResource("60_f4ds4")]
+
+[node name="fridge_A" parent="." instance=ExtResource("61_tay7f")]
+
+[node name="fridge_A_decorated" parent="." instance=ExtResource("62_m63xg")]
+
+[node name="fridge_B" parent="." instance=ExtResource("63_ebwae")]
+
+[node name="jar_A_large" parent="." instance=ExtResource("64_n5p0u")]
+
+[node name="jar_A_medium" parent="." instance=ExtResource("65_hiby0")]
+
+[node name="jar_A_small" parent="." instance=ExtResource("66_gwae3")]
+
+[node name="jar_B_large" parent="." instance=ExtResource("67_3ipg3")]
+
+[node name="jar_B_medium" parent="." instance=ExtResource("68_vhda8")]
+
+[node name="jar_B_small" parent="." instance=ExtResource("69_x2lul")]
+
+[node name="jar_C_large" parent="." instance=ExtResource("70_xwgw7")]
+
+[node name="jar_C_medium" parent="." instance=ExtResource("71_g785e")]
+
+[node name="jar_C_small" parent="." instance=ExtResource("72_pevjr")]
+
+[node name="jar_D_large" parent="." instance=ExtResource("73_m8x0h")]
+
+[node name="jar_D_medium" parent="." instance=ExtResource("74_6cyfi")]
+
+[node name="jar_D_small" parent="." instance=ExtResource("75_wpxcj")]
+
+[node name="ketchup" parent="." instance=ExtResource("76_kk7b5")]
+
+[node name="kitchencabinet" parent="." instance=ExtResource("77_hy0fg")]
+
+[node name="kitchencabinet_corner" parent="." instance=ExtResource("78_uhmo1")]
+
+[node name="kitchencabinet_corner_half" parent="." instance=ExtResource("79_wy6w8")]
+
+[node name="kitchencabinet_half" parent="." instance=ExtResource("80_vdyc5")]
+
+[node name="kitchencounter_innercorner" parent="." instance=ExtResource("81_e5fti")]
+
+[node name="kitchencounter_innercorner_backsplash" parent="." instance=ExtResource("82_kekf5")]
+
+[node name="kitchencounter_outercorner" parent="." instance=ExtResource("83_3cdey")]
+
+[node name="kitchencounter_outercorner_backsplash" parent="." instance=ExtResource("84_nfu5w")]
+
+[node name="kitchencounter_sink" parent="." instance=ExtResource("85_gwsn1")]
+
+[node name="kitchencounter_sink_backsplash" parent="." instance=ExtResource("86_eednt")]
+
+[node name="kitchencounter_straight_A" parent="." instance=ExtResource("87_wriat")]
+
+[node name="kitchencounter_straight_A_backsplash" parent="." instance=ExtResource("88_y0frw")]
+
+[node name="kitchencounter_straight_A_decorated" parent="." instance=ExtResource("89_1e0l5")]
+
+[node name="kitchencounter_straight_B" parent="." instance=ExtResource("90_oucfk")]
+
+[node name="kitchencounter_straight_B_backsplash" parent="." instance=ExtResource("91_rgou8")]
+
+[node name="kitchencounter_straight_decorated" parent="." instance=ExtResource("92_p7o83")]
+
+[node name="kitchentable_A" parent="." instance=ExtResource("93_bkx40")]
+
+[node name="kitchentable_A_large" parent="." instance=ExtResource("94_46vtu")]
+
+[node name="kitchentable_A_large_decorated" parent="." instance=ExtResource("95_av82f")]
+
+[node name="kitchentable_B" parent="." instance=ExtResource("96_wujsn")]
+
+[node name="kitchentable_B_large" parent="." instance=ExtResource("97_qfob0")]
+
+[node name="kitchentable_sink" parent="." instance=ExtResource("98_3vqmk")]
+
+[node name="kitchentable_sink_large" parent="." instance=ExtResource("99_bd7oo")]
+
+[node name="kitchentable_sink_large_decorated" parent="." instance=ExtResource("100_o28ao")]
+
+[node name="knife" parent="." instance=ExtResource("101_l5hkg")]
+
+[node name="lid_A" parent="." instance=ExtResource("102_8kod2")]
+
+[node name="lid_B" parent="." instance=ExtResource("103_y2dya")]
+
+[node name="lid_large" parent="." instance=ExtResource("104_duu5j")]
+
+[node name="menu" parent="." instance=ExtResource("105_l1ca1")]
+
+[node name="mustard" parent="." instance=ExtResource("106_fbg1r")]
+
+[node name="oven" parent="." instance=ExtResource("107_ohmo5")]
+
+[node name="pan_006" parent="." instance=ExtResource("108_0o42o")]
+
+[node name="pan_A" parent="." instance=ExtResource("109_xnt1j")]
+
+[node name="pan_B" parent="." instance=ExtResource("110_6nw0y")]
+
+[node name="papertowel" parent="." instance=ExtResource("111_l111h")]
+
+[node name="pillar_A" parent="." instance=ExtResource("112_aovlg")]
+
+[node name="pillar_B" parent="." instance=ExtResource("113_0jjab")]
+
+[node name="plate" parent="." instance=ExtResource("114_pda3l")]
+
+[node name="plate_dirty" parent="." instance=ExtResource("115_2jf2r")]
+
+[node name="plate_small" parent="." instance=ExtResource("116_2buo6")]
+
+[node name="pot_A" parent="." instance=ExtResource("117_eeaok")]
+
+[node name="pot_A_stew" parent="." instance=ExtResource("118_m6p76")]
+
+[node name="pot_B" parent="." instance=ExtResource("119_t0301")]
+
+[node name="pot_B_stew" parent="." instance=ExtResource("120_bnnng")]
+
+[node name="pot_large" parent="." instance=ExtResource("121_8eoih")]
+
+[node name="shelf_papertowel" parent="." instance=ExtResource("122_0043y")]
+
+[node name="shelf_papertowel_decorated" parent="." instance=ExtResource("123_dir2d")]
+
+[node name="stew_bowl" parent="." instance=ExtResource("124_0lmg7")]
+
+[node name="stew_pot" parent="." instance=ExtResource("125_64hjs")]
+
+[node name="stove_multi" parent="." instance=ExtResource("126_27elv")]
+
+[node name="stove_multi_countertop" parent="." instance=ExtResource("127_0cmwt")]
+
+[node name="stove_multi_decorated" parent="." instance=ExtResource("128_ticvg")]
+
+[node name="stove_single" parent="." instance=ExtResource("129_fte03")]
+
+[node name="stove_single_countertop" parent="." instance=ExtResource("130_eclmh")]
+
+[node name="table_round_A" parent="." instance=ExtResource("131_ybfmd")]
+
+[node name="table_round_A_decorated" parent="." instance=ExtResource("132_f2b8p")]
+
+[node name="table_round_A_small" parent="." instance=ExtResource("133_7p4fe")]
+
+[node name="table_round_A_small_decorated" parent="." instance=ExtResource("134_8d5up")]
+
+[node name="table_round_B" parent="." instance=ExtResource("135_bh7q2")]
+
+[node name="towelrail" parent="." instance=ExtResource("136_5etp8")]
+
+[node name="wall" parent="." instance=ExtResource("137_e2bh4")]
+
+[node name="wall_decorated" parent="." instance=ExtResource("138_h8k38")]
+
+[node name="wall_doorway" parent="." instance=ExtResource("139_ro3x6")]
+
+[node name="wall_half" parent="." instance=ExtResource("140_e2i2x")]
+
+[node name="wall_orderwindow" parent="." instance=ExtResource("141_om36n")]
+
+[node name="wall_orderwindow_decorated" parent="." instance=ExtResource("142_xxcwu")]
+
+[node name="wall_window_closed" parent="." instance=ExtResource("143_n24d4")]
+
+[node name="wall_window_open" parent="." instance=ExtResource("144_ybikl")]
