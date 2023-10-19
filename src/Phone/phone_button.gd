@@ -25,11 +25,18 @@ func _input(event):
 				return
 			"Down":
 				return
+			"10":
+				add_character_to_screen("*")
+			"11":
+				add_character_to_screen("0")
+			"12":
+				add_character_to_screen("#")
 			_:
-				if len(get_parent().get_node("Label3D").text) < 27:
-					get_parent().get_node("Label3D").text += self.name
+				add_character_to_screen(self.name)
 
-
+func add_character_to_screen(character: String):
+	if len(get_parent().get_node("Label3D").text) < 27:
+		get_parent().get_node("Label3D").text += character
 
 func _on_area_3d_mouse_entered() -> void:
 	is_selected = true
