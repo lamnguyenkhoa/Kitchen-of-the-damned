@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvbdwb4mdybul"]
+[gd_scene load_steps=7 format=3 uid="uid://bvbdwb4mdybul"]
 
+[ext_resource type="Script" path="res://src/Item/Phone/phone.gd" id="1_gs38a"]
 [ext_resource type="PackedScene" uid="uid://xh6pnqdyghb" path="res://src/Item/Phone/PhoneButton.tscn" id="1_lsyx1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx3o7"]
@@ -17,69 +18,80 @@ material = SubResource("StandardMaterial3D_j2ehf")
 size = Vector3(0.7, 0.5, 0.1)
 
 [node name="Phone" type="Node3D"]
+script = ExtResource("1_gs38a")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_p35xe")
 
-[node name="Screen" type="MeshInstance3D" parent="."]
+[node name="Screen" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.522292, 0.120616)
 mesh = SubResource("BoxMesh_7rkl8")
+skeleton = NodePath("../..")
 
-[node name="Accept" parent="." instance=ExtResource("1_lsyx1")]
+[node name="Accept" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, 0.113175, 0.133878)
 
-[node name="Decline" parent="." instance=ExtResource("1_lsyx1")]
+[node name="Decline" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299784, 0.106579, 0.133878)
 
-[node name="Up" parent="." instance=ExtResource("1_lsyx1")]
+[node name="Up" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020089, 0.0576021, 0.133878)
 
-[node name="Down" parent="." instance=ExtResource("1_lsyx1")]
+[node name="Down" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020089, -0.0839863, 0.133878)
 
-[node name="Right" parent="." instance=ExtResource("1_lsyx1")]
+[node name="Right" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116466, -0.0263603, 0.133878)
 
-[node name="Left" parent="." instance=ExtResource("1_lsyx1")]
+[node name="Left" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.164646, -0.0263603, 0.133878)
 
-[node name="1" parent="." instance=ExtResource("1_lsyx1")]
+[node name="1" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.254841, 0.133878)
 
-[node name="4" parent="." instance=ExtResource("1_lsyx1")]
+[node name="4" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.435846, 0.133878)
 
-[node name="7" parent="." instance=ExtResource("1_lsyx1")]
+[node name="7" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.609573, 0.133878)
 
-[node name="10" parent="." instance=ExtResource("1_lsyx1")]
+[node name="10" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.786618, 0.133878)
 
-[node name="3" parent="." instance=ExtResource("1_lsyx1")]
+[node name="3" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.255032, 0.133878)
 
-[node name="6" parent="." instance=ExtResource("1_lsyx1")]
+[node name="6" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.435846, 0.133878)
 
-[node name="9" parent="." instance=ExtResource("1_lsyx1")]
+[node name="9" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.609573, 0.133878)
 
-[node name="12" parent="." instance=ExtResource("1_lsyx1")]
+[node name="12" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.786618, 0.133878)
 
-[node name="2" parent="." instance=ExtResource("1_lsyx1")]
+[node name="2" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.309223, 0.133878)
 
-[node name="5" parent="." instance=ExtResource("1_lsyx1")]
+[node name="5" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.490037, 0.133878)
 
-[node name="8" parent="." instance=ExtResource("1_lsyx1")]
+[node name="8" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.663765, 0.133878)
 
-[node name="11" parent="." instance=ExtResource("1_lsyx1")]
+[node name="11" parent="Body" instance=ExtResource("1_lsyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.840809, 0.133878)
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="PhoneBrand" type="Label3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000844002, 0.877642, 0.171133)
+pixel_size = 0.004
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 0.537255)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Hellkia"
+autowrap_mode = 1
+width = 150.0
+
+[node name="ScreenLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299156, 0.277642, 0.171133)
 pixel_size = 0.004
 modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
@@ -89,3 +101,33 @@ horizontal_alignment = 2
 vertical_alignment = 2
 autowrap_mode = 1
 width = 150.0
+
+[node name="TimeLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299, 0.71, 0.171)
+pixel_size = 0.004
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "7:07PM"
+font_size = 14
+horizontal_alignment = 2
+autowrap_mode = 1
+width = 150.0
+
+[node name="BatteryLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.291, 0.71, 0.171)
+pixel_size = 0.004
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "69%"
+font_size = 14
+horizontal_alignment = 0
+autowrap_mode = 1
+width = 150.0
+
+[node name="CallTranscript" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000843942, 1.47764, 0.171133)
+pixel_size = 0.004
+no_depth_test = true
+text = "So this is what you gonna see. Please go ahead and follow the instruction. "
+font_size = 28
+autowrap_mode = 2
