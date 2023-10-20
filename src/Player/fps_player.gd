@@ -3,17 +3,22 @@ class_name FPSPlayer
 
 @onready var aim_ray: RayCast3D = $Head/Camera3d/RayCast3d
 @onready var camera: Camera3D = $Head/Camera3d
-@onready var hold_pos: Marker3D = $Head/Camera3d/HoldPos
-@onready var inspect_pos: Marker3D = $Head/Camera3d/InspectPos
-@onready var item_holder = $Head/Camera3d/ItemHolder
+@onready var item_hold_pos: Marker3D = $Head/Camera3d/ItemHoldPos
+@onready var phone_hold_pos: Marker3D = $Head/Camera3d/PhoneHoldPos
+@onready var phone_inspect_pos: Marker3D = $Head/Camera3d/PhoneInspectPos
+@onready var phone_holder = $Head/Camera3d/PhoneHolder
 
+@onready var interact_label = $CanvasLayer/InteractLabel
 
 var mouse_sensibility = 1500
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 var is_inspecting = false
+var is_holding_item = false
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const THROW_STRENGTH = 15
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,13 +41,12 @@ func _physics_process(delta):
 		var tween = get_tree().create_tween()
 		if not is_inspecting:
 			is_inspecting = true
-			tween.tween_property(item_holder, "position", inspect_pos.position, 0.25)
+			tween.tween_property(phone_holder, "position", phone_inspect_pos.position, 0.25)
 			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 		else:
 			is_inspecting = false
-			tween.tween_property(item_holder, "position", hold_pos.position, 0.25)
+			tween.tween_property(phone_holder, "position", phone_hold_pos.position, 0.25)
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -54,6 +58,25 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	# Look at pickup-able item
+	if aim_ray.is_colliding():
+		var collider = aim_ray.get_collider()
+		if collider is Interactable:
+			var interactable = collider as Interactable
+			interact_label.visible = true
+			if Input.is_action_just_pressed("pickup"):
+				interactable.interact()
+		else:
+			interact_label.visible = false
+	else:
+		interact_label.visible = false
+
+	if Input.is_action_just_pressed("drop") and is_holding_item:
+		drop_item()
+
+	if Input.is_action_just_pressed("throw") and is_holding_item:
+		throw_item()
+
 	move_and_slide()
 
 func _input(event):
@@ -63,3 +86,35 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
+
+func throw_item():
+	var item = item_hold_pos.get_child(0)
+	if item is RigidBody3D:
+		var item_to_throw = drop_item() as RigidBody3D
+		var direction = -camera.get_global_transform().basis.z
+		item_to_throw.apply_central_impulse(direction * THROW_STRENGTH)
+		return item_to_throw
+	return null
+
+
+func drop_item() -> Node:
+	var item = item_hold_pos.get_child(0)
+	var item_pos = item.global_position
+	item_hold_pos.remove_child(item)
+	GameManager.restaurant.add_child(item)
+	item.process_mode = Node.PROCESS_MODE_INHERIT
+	item.global_position = item_pos
+	is_holding_item = false
+	return item
+
+func pickup_item(collider: Node3D) -> Node:
+	if is_holding_item:
+		drop_item()
+	var item_parent = collider.get_parent()
+	item_parent.remove_child(collider)
+	item_hold_pos.add_child(collider)
+	collider.position = Vector3(0, 0, 0)
+	collider.process_mode = Node.PROCESS_MODE_DISABLED
+	is_holding_item = true
+	return collider
+

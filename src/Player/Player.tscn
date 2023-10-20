@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://7gv6q50fuutj"]
 
 [ext_resource type="Script" path="res://src/Player/fps_player.gd" id="1_sy51s"]
-[ext_resource type="PackedScene" uid="uid://bvbdwb4mdybul" path="res://src/Phone/Phone.tscn" id="2_si6t8"]
-[ext_resource type="PackedScene" uid="uid://dpl2b5x4ayq4w" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_cheese.gltf" id="2_t20e1"]
+[ext_resource type="PackedScene" uid="uid://bvbdwb4mdybul" path="res://src/Item/Phone/Phone.tscn" id="2_si6t8"]
+[ext_resource type="Texture2D" uid="uid://d148jfbwbx0sl" path="res://asset/sprites/circle.png" id="4_bwy3k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 radius = 0.7
@@ -26,22 +26,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468479, -0.463024)
 
 [node name="RayCast3d" type="RayCast3D" parent="Head/Camera3d"]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, -0.00588068, 0.463024)
-target_position = Vector3(60, 0, 0)
+target_position = Vector3(3, 0, 0)
+collision_mask = 6
 
-[node name="HoldPos" type="Marker3D" parent="Head/Camera3d"]
+[node name="ItemHoldPos" type="Marker3D" parent="Head/Camera3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.622, -0.508, -0.655)
+
+[node name="PhoneHoldPos" type="Marker3D" parent="Head/Camera3d"]
 transform = Transform3D(0.939693, 0.048782, -0.338523, 0, 0.989776, 0.142629, 0.34202, -0.134027, 0.930085, 0.503, -0.248479, -0.579976)
 
-[node name="HoldPos2" type="Marker3D" parent="Head/Camera3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.367, -0.348, -0.48)
-
-[node name="food_ingredient_cheese" parent="Head/Camera3d/HoldPos2" instance=ExtResource("2_t20e1")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-
-[node name="InspectPos" type="Marker3D" parent="Head/Camera3d"]
+[node name="PhoneInspectPos" type="Marker3D" parent="Head/Camera3d"]
 transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0.2, 0, -0.4)
 
-[node name="ItemHolder" type="Node3D" parent="Head/Camera3d"]
+[node name="PhoneHolder" type="Node3D" parent="Head/Camera3d"]
 transform = Transform3D(0.939693, 0.048782, -0.338523, 0, 0.989776, 0.142629, 0.34202, -0.134027, 0.930085, 0.503, -0.248479, -0.579976)
 
-[node name="Phone" parent="Head/Camera3d/ItemHolder" instance=ExtResource("2_si6t8")]
+[node name="Phone" parent="Head/Camera3d/PhoneHolder" instance=ExtResource("2_si6t8")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E to pickup"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.784314)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bwy3k")
+expand_mode = 1
