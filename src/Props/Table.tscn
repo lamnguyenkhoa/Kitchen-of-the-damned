@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd55ypodwwnpe"]
+
+[ext_resource type="PackedScene" uid="uid://c25mp8qjom80p" path="res://addons/kaykit_restaurant_bits/Assets/gltf/table_round_A.gltf" id="1_8j5fn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ob3mf"]
+height = 1.0
+radius = 1.5
+
+[node name="Table" type="Node3D"]
+
+[node name="table_round_A" parent="." instance=ExtResource("1_8j5fn")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("CylinderShape3D_ob3mf")
