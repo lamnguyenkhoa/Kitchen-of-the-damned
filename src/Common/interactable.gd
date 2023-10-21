@@ -4,6 +4,7 @@ class_name Interactable
 enum InteractableType {
     FOOD,
     FOOD_CRATE,
+    COOKING_TOOL,
     ITEM
 }
 

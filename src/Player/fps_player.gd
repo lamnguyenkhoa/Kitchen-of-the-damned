@@ -87,6 +87,13 @@ func _input(event):
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
 
+
+func get_current_holding_item():
+	if is_holding_item:
+		return item_hold_pos.get_child(0)
+	else:
+		return null
+
 func throw_item():
 	var item = item_hold_pos.get_child(0)
 	if item is RigidBody3D:
@@ -118,3 +125,8 @@ func pickup_item(collider: Node3D) -> Node:
 	is_holding_item = true
 	return collider
 
+func destroy_current_holding_item():
+	if not is_holding_item:
+		return
+	var item = drop_item()
+	item.queue_free()

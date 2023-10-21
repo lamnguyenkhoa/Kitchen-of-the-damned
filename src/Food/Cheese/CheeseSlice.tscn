@@ -41,12 +41,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hxnty")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yonlo"]
-points = PackedVector3Array(0.412167, -0.050524, 0.0343742, 0.387637, -0.0874199, 0.0360688, 0.412167, -0.050524, -0.034455, 0.328975, 0.0180736, 0, 0.260549, 0.0180632, 0.26055, 0.260549, -0.028085, 0.26055, 0.0360677, -0.0874199, 0.387638, 0.387637, -0.0874199, -0.0361495, 0.260549, -0.028085, -0.260631, 0.260549, 0.0180632, -0.260631, -8.17478e-05, 0.0180736, 0.328976, -8.17478e-05, 0.0180736, -0.329057, 0.0343732, -0.050524, 0.412088, -0.034456, -0.050524, 0.412168, -0.0361505, -0.0874199, 0.387638, 0.0360677, -0.0874199, -0.387719, 0.0343732, -0.050524, -0.412168, -0.329058, 0.0180736, 0, -0.260632, 0.0180632, 0.26055, -0.034456, -0.050524, -0.412168, -0.260632, 0.0180632, -0.260631, -0.260632, -0.028085, 0.26055, -0.38772, -0.0874199, 0.0360688, -0.0361505, -0.0874199, -0.387719, -0.412169, -0.050524, -0.034455, -0.412169, -0.050524, 0.0343742, -0.260632, -0.028085, -0.260631, -0.38772, -0.0874199, -0.0361495)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8pe08"]
+height = 0.12
+radius = 0.4
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="CheeseSlice" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_dia6s")
 food_name = "Cheese slice"
 
@@ -56,5 +57,5 @@ mesh = SubResource("ArrayMesh_jeffr")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_yonlo")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.015, 0)
+shape = SubResource("CylinderShape3D_8pe08")

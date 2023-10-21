@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c85xh3adubff8"]
+[gd_scene load_steps=13 format=3 uid="uid://c85xh3adubff8"]
 
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="3_ycdsl"]
 [ext_resource type="PackedScene" uid="uid://xulojom3ruro" path="res://src/Food/Cheese/Cheese.tscn" id="4_c7b80"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://src/Player/Player.tscn" id="4_le3v1"]
 [ext_resource type="PackedScene" uid="uid://0v1biv5lvf7" path="res://src/Food/Cheese/CheeseCrate.tscn" id="5_jvtvv"]
+[ext_resource type="PackedScene" uid="uid://cklvfmvgcuwrf" path="res://src/Food/Meat/Steak.tscn" id="6_bds0k"]
+[ext_resource type="PackedScene" uid="uid://ctcca0uotqdvq" path="res://src/Props/ChoppingBoard/ChoppingBoard.tscn" id="7_0kmde"]
 [ext_resource type="MeshLibrary" uid="uid://uutgoc4olpnm" path="res://src/Map/KitchenMeshLibrary.tres" id="7_84qfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0l5"]
@@ -87,3 +89,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 12)
 
 [node name="CheeseCrate" parent="." instance=ExtResource("5_jvtvv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.5, 8)
+
+[node name="Steak" parent="." instance=ExtResource("6_bds0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 12)
+
+[node name="ChoppingBoard" parent="." instance=ExtResource("7_0kmde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.5, -21.8)
+
+[node name="ChoppingBoard2" parent="." instance=ExtResource("7_0kmde")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -18.6, 1.5, -19)
+
+[node name="ChoppingBoard3" parent="." instance=ExtResource("7_0kmde")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.4, 1.5, 14)
