@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name FPSPlayer
 
+@export var phone: Phone
+
 @onready var aim_ray: RayCast3D = $Head/Camera3d/RayCast3d
 @onready var camera: Camera3D = $Head/Camera3d
 @onready var item_hold_pos: Marker3D = $Head/Camera3d/ItemHoldPos
@@ -84,7 +86,7 @@ func _physics_process(delta):
 		throw_item()
 
 	if Input.is_action_just_pressed("flashlight_toggle"):
-		flashlight.visible = !flashlight.visible
+		toggle_flashlight()
 
 	move_and_slide()
 
@@ -95,6 +97,11 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
+
+
+func toggle_flashlight():
+	flashlight.visible = !flashlight.visible
+	phone.flashlight_icon.visible = flashlight.visible
 
 
 func get_current_looking_collision_shape():

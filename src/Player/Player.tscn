@@ -9,9 +9,10 @@ radius = 0.7
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6b3ky"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("phone")]
 collision_mask = 3
 script = ExtResource("1_sy51s")
+phone = NodePath("Head/Camera3d/PhoneHolder/Phone")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_emkox")
@@ -81,17 +82,17 @@ theme_override_font_sizes/font_size = 12
 text = "E: Interact | Tab: Use phone | F: Toggle flashlight"
 vertical_alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Recticle" type="TextureRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_bwy3k")

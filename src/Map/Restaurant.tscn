@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c85xh3adubff8"]
+[gd_scene load_steps=17 format=3 uid="uid://c85xh3adubff8"]
 
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="3_ycdsl"]
 [ext_resource type="PackedScene" uid="uid://xulojom3ruro" path="res://src/Food/Cheese/Cheese.tscn" id="4_c7b80"]
@@ -29,6 +29,9 @@ fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_q6syv"]
+size = Vector3(80, 0.5, 70)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4x64g"]
 size = Vector3(80, 0.5, 70)
 
 [node name="Restaurant" type="Node3D"]
@@ -87,8 +90,13 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Roof" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 3.96811, -3.49101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 4.2, -3.491)
 mesh = SubResource("BoxMesh_q6syv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Roof"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof/StaticBody3D"]
+shape = SubResource("BoxShape3D_4x64g")
 
 [node name="PropHolder" type="Node3D" parent="."]
 
