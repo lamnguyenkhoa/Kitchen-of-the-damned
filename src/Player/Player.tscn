@@ -44,6 +44,11 @@ transform = Transform3D(0.939693, 0.048782, -0.338523, 0, 0.989776, 0.142629, 0.
 [node name="Phone" parent="Head/Camera3d/PhoneHolder" instance=ExtResource("2_si6t8")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
+[node name="Flashlight" type="SpotLight3D" parent="Head/Camera3d"]
+light_cull_mask = 4294967293
+spot_range = 40.0
+spot_angle = 30.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InteractLabel" type="Label" parent="CanvasLayer"]
@@ -61,6 +66,20 @@ grow_vertical = 2
 text = "Press E to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ControlLabel" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.521569)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -22.0
+offset_right = 302.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "E: Interact | Tab: Use phone | F: Toggle flashlight"
+vertical_alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.784314)

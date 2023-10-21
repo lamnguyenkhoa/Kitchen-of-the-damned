@@ -12,6 +12,8 @@ size = Vector3(1, 2, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2ehf"]
 albedo_color = Color(0.792157, 1, 0.647059, 1)
+emission_enabled = true
+emission = Color(0.466667, 0.666667, 0.466667, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7rkl8"]
 material = SubResource("StandardMaterial3D_j2ehf")
@@ -21,10 +23,12 @@ size = Vector3(0.7, 0.5, 0.1)
 script = ExtResource("1_gs38a")
 
 [node name="Body" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("BoxMesh_p35xe")
 
 [node name="Screen" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.522292, 0.120616)
+layers = 2
 mesh = SubResource("BoxMesh_7rkl8")
 skeleton = NodePath("../..")
 

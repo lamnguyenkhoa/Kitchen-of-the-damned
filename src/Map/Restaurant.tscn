@@ -22,10 +22,14 @@ sky_material = SubResource("ProceduralSkyMaterial_thyy4")
 [sub_resource type="Environment" id="Environment_4bfw8"]
 background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
+background_energy_multiplier = 0.25
 sky = SubResource("Sky_ivwug")
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_q6syv"]
-size = Vector3(30, 0.5, 30)
+size = Vector3(80, 0.5, 70)
 
 [node name="Restaurant" type="Node3D"]
 
@@ -73,11 +77,6 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Roof" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 3.96811, 2.50899)
-visible = false
-mesh = SubResource("BoxMesh_q6syv")
-
 [node name="DecoGridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("3_ycdsl")
 cell_size = Vector3(1, 1, 1)
@@ -87,29 +86,35 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Cheese" parent="." instance=ExtResource("4_c7b80")]
+[node name="Roof" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 3.96811, -3.49101)
+mesh = SubResource("BoxMesh_q6syv")
+
+[node name="PropHolder" type="Node3D" parent="."]
+
+[node name="Cheese" parent="PropHolder" instance=ExtResource("4_c7b80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 12)
 
-[node name="CheeseCrate" parent="." instance=ExtResource("5_jvtvv")]
+[node name="CheeseCrate" parent="PropHolder" instance=ExtResource("5_jvtvv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.5, 8)
 
-[node name="Steak" parent="." instance=ExtResource("6_bds0k")]
+[node name="Steak" parent="PropHolder" instance=ExtResource("6_bds0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 12)
 
-[node name="ChoppingBoard" parent="." instance=ExtResource("7_0kmde")]
+[node name="ChoppingBoard" parent="PropHolder" instance=ExtResource("7_0kmde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.5, -21.8)
 
-[node name="ChoppingBoard2" parent="." instance=ExtResource("7_0kmde")]
+[node name="ChoppingBoard2" parent="PropHolder" instance=ExtResource("7_0kmde")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -18.6, 1.5, -19)
 
-[node name="ChoppingBoard3" parent="." instance=ExtResource("7_0kmde")]
+[node name="ChoppingBoard3" parent="PropHolder" instance=ExtResource("7_0kmde")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.4, 1.5, 14)
 
-[node name="Lettuce" parent="." instance=ExtResource("8_mxry1")]
+[node name="Lettuce" parent="PropHolder" instance=ExtResource("8_mxry1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 10)
 
-[node name="Tomato" parent="." instance=ExtResource("9_fpidh")]
+[node name="Tomato" parent="PropHolder" instance=ExtResource("9_fpidh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 10)
 
-[node name="SteakFridge" parent="." instance=ExtResource("10_41qgd")]
+[node name="SteakFridge" parent="PropHolder" instance=ExtResource("10_41qgd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.4, 10)

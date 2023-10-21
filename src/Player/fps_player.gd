@@ -7,6 +7,7 @@ class_name FPSPlayer
 @onready var phone_hold_pos: Marker3D = $Head/Camera3d/PhoneHoldPos
 @onready var phone_inspect_pos: Marker3D = $Head/Camera3d/PhoneInspectPos
 @onready var phone_holder = $Head/Camera3d/PhoneHolder
+@onready var flashlight: SpotLight3D = $Head/Camera3d/Flashlight
 
 @onready var interact_label = $CanvasLayer/InteractLabel
 
@@ -81,6 +82,9 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("throw") and is_holding_item:
 		throw_item()
+
+	if Input.is_action_just_pressed("flashlight_toggle"):
+		flashlight.visible = !flashlight.visible
 
 	move_and_slide()
 
