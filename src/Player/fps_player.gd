@@ -15,6 +15,8 @@ var mouse_relative_x = 0
 var mouse_relative_y = 0
 var is_inspecting = false
 var is_holding_item = false
+var looked_at_collider: Object = null
+var looked_at_collider_idx: int = 0
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -60,16 +62,19 @@ func _physics_process(delta):
 
 	# Look at pickup-able item
 	if aim_ray.is_colliding():
-		var collider = aim_ray.get_collider()
-		if collider is Interactable:
-			var interactable = collider as Interactable
+		looked_at_collider = aim_ray.get_collider()
+		looked_at_collider_idx = aim_ray.get_collider_shape()
+		if looked_at_collider is Interactable:
+			var interactable = looked_at_collider as Interactable
 			interact_label.visible = true
 			if Input.is_action_just_pressed("pickup"):
 				interactable.interact()
 		else:
 			interact_label.visible = false
+			looked_at_collider = null
 	else:
 		interact_label.visible = false
+		looked_at_collider = null
 
 	if Input.is_action_just_pressed("drop") and is_holding_item:
 		drop_item()
@@ -86,6 +91,14 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
+
+
+func get_current_looking_collision_shape():
+	if looked_at_collider != null:
+		var hit_node = looked_at_collider.shape_owner_get_owner(looked_at_collider_idx)
+		return hit_node
+	else:
+		return null
 
 
 func get_current_holding_item():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c85xh3adubff8"]
+[gd_scene load_steps=16 format=3 uid="uid://c85xh3adubff8"]
 
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="3_ycdsl"]
 [ext_resource type="PackedScene" uid="uid://xulojom3ruro" path="res://src/Food/Cheese/Cheese.tscn" id="4_c7b80"]
@@ -9,6 +9,7 @@
 [ext_resource type="MeshLibrary" uid="uid://uutgoc4olpnm" path="res://src/Map/KitchenMeshLibrary.tres" id="7_84qfx"]
 [ext_resource type="PackedScene" uid="uid://omf7em7u6sqp" path="res://src/Food/Lettuce/Lettuce.tscn" id="8_mxry1"]
 [ext_resource type="PackedScene" uid="uid://chdf45q3onvhc" path="res://src/Food/Tomato/Tomato.tscn" id="9_fpidh"]
+[ext_resource type="PackedScene" uid="uid://bk6i4vbqnkjtv" path="res://src/Food/Meat/SteakFridge.tscn" id="10_41qgd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0l5"]
 size = Vector3(100, 1, 100)
@@ -109,3 +110,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 10)
 
 [node name="Tomato" parent="." instance=ExtResource("9_fpidh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 10)
+
+[node name="SteakFridge" parent="." instance=ExtResource("10_41qgd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.4, 10)
