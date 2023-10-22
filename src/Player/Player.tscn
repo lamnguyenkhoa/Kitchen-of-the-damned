@@ -79,7 +79,7 @@ offset_right = 302.0
 offset_bottom = -2.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 12
-text = "E: Interact | Tab: Use phone | F: Toggle flashlight"
+text = "E: Interact | G: Drop item | Tab: Use phone | F: Toggle flashlight"
 vertical_alignment = 2
 
 [node name="Recticle" type="TextureRect" parent="CanvasLayer"]

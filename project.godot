@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 
 GameManager="*res://src/Singleton/GameManager.tscn"
 
+[debug]
+
+gdscript/warnings/unused_variable=0
+gdscript/warnings/unused_parameter=0
+
 [input]
 
 move_left={
@@ -88,6 +93,7 @@ flashlight_toggle={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Environment"
 3d_physics/layer_3="Interactable"
+3d_physics/layer_4="Ghost"
 
 [rendering]
 
