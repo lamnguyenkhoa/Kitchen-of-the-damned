@@ -2,25 +2,37 @@ extends Monster
 
 @export var roam_node_group: Node3D
 
+@onready var ghost_mesh: MeshInstance3D = $Model/MeshInstance3D
+
 var roam_nodes: Array[Marker3D] = []
 var roam_node_idx = 0
+var despawned = false
+var ghost_material: StandardMaterial3D
+var can_be_seen = false
 
-const ANGLE_THRESHOLD = 48
+const ANGLE_THRESHOLD = 45
+const DEFAULT_GHOST_MATERIAL_ALPHA = 0.3 # in 0-1 scale
 
 func _ready():
 	# Convert Array[Node] to Array[Marker3D]
 	roam_nodes.assign(roam_node_group.get_children())
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
+	ghost_material = ghost_mesh.mesh.surface_get_material(0)
+	print(ghost_material)
 
 func _process(delta: float) -> void:
 	var monster_dir = global_position - GameManager.player.global_position
 	var look_dir = GameManager.player.get_look_direction()
 	var look_angle = rad_to_deg(monster_dir.angle_to(look_dir))
 	if look_angle < ANGLE_THRESHOLD:
-		visible = false
+		can_be_seen = false
 	else:
-		visible = true
+		can_be_seen = true
+	var alpha_perc = remap(look_angle, ANGLE_THRESHOLD, 2 * ANGLE_THRESHOLD, 0, DEFAULT_GHOST_MATERIAL_ALPHA)
+	alpha_perc = clamp(alpha_perc, 0, DEFAULT_GHOST_MATERIAL_ALPHA)
+	ghost_material.albedo_color.a = alpha_perc
+
 
 func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
@@ -42,4 +54,9 @@ func actor_setup():
 	navigation_agent.set_target_position(roam_nodes[roam_node_idx].global_position)
 
 
-
+func _on_ghost_area_body_entered(body:Node3D) -> void:
+	if despawned:
+		return
+	if body is FPSPlayer:
+		print("Damaged")
+		GameManager.call_deferred("despawn_eye_corner_ghost")

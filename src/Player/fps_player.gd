@@ -20,7 +20,9 @@ var is_inspecting = false
 var is_holding_item = false
 var looked_at_collider: Object = null
 var looked_at_collider_idx: int = 0
+var hp = 100
 
+const MAX_HP = 100
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const THROW_STRENGTH = 15
@@ -32,6 +34,7 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	aim_ray.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	hp = MAX_HP
 
 func _physics_process(delta):
 	# Add the gravity.

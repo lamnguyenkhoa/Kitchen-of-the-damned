@@ -4,3 +4,9 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_gr8re")
+
+[node name="RespawnEyeCornerGhostTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="RespawnEyeCornerGhostTimer" to="." method="_on_respawn_eye_corner_ghost_timer_timeout"]
