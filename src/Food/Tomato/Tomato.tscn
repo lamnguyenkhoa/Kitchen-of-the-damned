@@ -45,11 +45,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pvyrc")
 
-[node name="Tomato" type="RigidBody3D"]
+[node name="Tomato" type="RigidBody3D" node_paths=PackedStringArray("food_mesh")]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_3n3ly")
 food_name = "Tomato"
+food_mesh = NodePath("food_ingredient_tomato2")
 chopped_prefab = ExtResource("2_ciael")
 n_chopped_spawn = 3
 

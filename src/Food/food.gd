@@ -2,6 +2,7 @@ extends Interactable
 class_name Food
 
 @export var food_name: String
+@export var food_mesh: MeshInstance3D
 @export var chopped_prefab: PackedScene
 @export var n_chopped_spawn: int
 @export var baked_prefab: PackedScene

@@ -43,19 +43,21 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e2on3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gnkn6"]
-size = Vector3(1.2, 0.8, 1)
+size = Vector3(0.6, 0.4, 0.5)
 
-[node name="DicedMeat" type="RigidBody3D"]
+[node name="DicedMeat" type="RigidBody3D" node_paths=PackedStringArray("food_mesh")]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_3vpug")
 food_name = "Diced meat"
+food_mesh = NodePath("food_ingredient_steak_pieces2")
 baked_prefab = ExtResource("2_umt4i")
 
 [node name="food_ingredient_steak_pieces2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_iltbi")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.2, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_gnkn6")

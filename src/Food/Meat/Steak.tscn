@@ -48,23 +48,25 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ljrgv")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ofjdv"]
-height = 0.5
-radius = 1.0
+height = 0.1
+radius = 0.25
 
-[node name="Steak" type="RigidBody3D"]
+[node name="Steak" type="RigidBody3D" node_paths=PackedStringArray("food_mesh")]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_obq5u")
 food_name = "Steak"
+food_mesh = NodePath("food_ingredient_steak2")
 chopped_prefab = ExtResource("2_dssbo")
 n_chopped_spawn = 1
 baked_prefab = ExtResource("3_dmq5w")
 
 [node name="food_ingredient_steak2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_0k6q4")
 mesh = SubResource("ArrayMesh_fy8hw")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("CylinderShape3D_ofjdv")

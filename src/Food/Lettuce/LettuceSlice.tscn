@@ -42,11 +42,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j1tgs")
 
-[node name="LettuceSlice" type="RigidBody3D"]
+[node name="LettuceSlice" type="RigidBody3D" node_paths=PackedStringArray("food_mesh")]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_y3c3y")
 food_name = "Lettuce slice"
+food_mesh = NodePath("food_ingredient_lettuce_slice2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_l74ao")
