@@ -49,6 +49,7 @@ shadow_mesh = SubResource("ArrayMesh_c20n0")
 collision_layer = 6
 script = ExtResource("1_24x4x")
 food_gave = ExtResource("2_p2ugv")
+food_name = "Tomato"
 type = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

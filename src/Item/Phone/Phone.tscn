@@ -140,3 +140,12 @@ no_depth_test = true
 text = "So this is what you gonna see. Please go ahead and follow the instruction. "
 font_size = 28
 autowrap_mode = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.538285, 0.592198)
+light_color = Color(0.666667, 0.858824, 0.666667, 1)
+light_energy = 0.15
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 0.3
+omni_shadow_mode = 0

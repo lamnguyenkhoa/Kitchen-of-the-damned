@@ -46,6 +46,7 @@ transform = Transform3D(0.939693, 0.048782, -0.338523, 0, 0.989776, 0.142629, 0.
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Flashlight" type="SpotLight3D" parent="Head/Camera3d"]
+light_color = Color(0.913725, 1, 0.886275, 1)
 light_cull_mask = 4294967293
 spot_range = 40.0
 spot_angle = 30.0
@@ -64,7 +65,7 @@ offset_right = 65.5
 offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press E to interact"
+text = "Interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 

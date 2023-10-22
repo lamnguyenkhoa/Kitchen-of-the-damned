@@ -47,6 +47,7 @@ points = PackedVector3Array(1, 0.79994, 0.967896, 0.558144, 0.945964, 0.227682, 
 collision_layer = 6
 script = ExtResource("1_amjqm")
 food_gave = ExtResource("2_efll5")
+food_name = "Cheese"
 type = 1
 
 [node name="crate_cheese2" type="MeshInstance3D" parent="."]

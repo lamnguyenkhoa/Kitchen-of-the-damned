@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cklvfmvgcuwrf"]
+[gd_scene load_steps=10 format=3 uid="uid://cklvfmvgcuwrf"]
 
 [ext_resource type="Script" path="res://src/Food/food.gd" id="1_obq5u"]
-[ext_resource type="PackedScene" uid="uid://dfd4vv8ln7ewn" path="res://src/Food/Meat/SteakMince.tscn" id="2_4gywi"]
+[ext_resource type="PackedScene" uid="uid://dfd4vv8ln7ewn" path="res://src/Food/Meat/DicedMeat.tscn" id="2_dssbo"]
+[ext_resource type="PackedScene" uid="uid://2ffh6nfy4ibt" path="res://src/Food/Meat/CookedSteak.tscn" id="3_dmq5w"]
 [ext_resource type="Texture2D" uid="uid://b6gkgpbve41j2" path="res://addons/kaykit_restaurant_bits/Assets/gltf/restaurantbits_texture.png" id="3_t3gwc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k6q4"]
@@ -55,8 +56,9 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_obq5u")
 food_name = "Steak"
-chopped_prefab = ExtResource("2_4gywi")
+chopped_prefab = ExtResource("2_dssbo")
 n_chopped_spawn = 1
+baked_prefab = ExtResource("3_dmq5w")
 
 [node name="food_ingredient_steak2" type="MeshInstance3D" parent="."]
 material_overlay = SubResource("StandardMaterial3D_0k6q4")

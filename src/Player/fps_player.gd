@@ -72,6 +72,7 @@ func _physics_process(delta):
 		looked_at_collider_idx = aim_ray.get_collider_shape()
 		if looked_at_collider is Interactable:
 			var interactable = looked_at_collider as Interactable
+			interact_label.text = interactable.get_interact_label_text()
 			interact_label.visible = true
 			if Input.is_action_just_pressed("pickup"):
 				interactable.interact()
@@ -162,3 +163,16 @@ func destroy_current_holding_item():
 		return
 	var item = drop_item()
 	item.queue_free()
+
+
+func damaged(amount: int):
+	hp -= amount
+	hp = clamp(hp, 0, MAX_HP)
+
+	if hp < 0:
+		game_over()
+
+
+func game_over():
+	print("GameOver")
+	return

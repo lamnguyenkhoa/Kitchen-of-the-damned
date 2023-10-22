@@ -19,7 +19,6 @@ func _ready():
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
 	ghost_material = ghost_mesh.mesh.surface_get_material(0)
-	print(ghost_material)
 
 func _process(delta: float) -> void:
 	var monster_dir = global_position - GameManager.player.global_position

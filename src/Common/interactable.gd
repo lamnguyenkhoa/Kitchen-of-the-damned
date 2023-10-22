@@ -12,3 +12,6 @@ enum InteractableType {
 
 func interact():
     print("This object's interact() not yet implemented ", self.name)
+
+func get_interact_label_text() -> String:
+    return "Interact"
