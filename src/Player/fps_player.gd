@@ -104,6 +104,11 @@ func toggle_flashlight():
 	phone.flashlight_icon.visible = flashlight.visible
 
 
+func get_look_direction() -> Vector3:
+	var direction = -camera.get_global_transform().basis.z
+	return direction
+
+
 func get_current_looking_collision_shape():
 	if looked_at_collider != null:
 		var hit_node = looked_at_collider.shape_owner_get_owner(looked_at_collider_idx)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cyxi348muo0a4"]
 
-[ext_resource type="Script" path="res://src/Monster/monster.gd" id="1_s848n"]
+[ext_resource type="Script" path="res://src/Monster/EyeCornerGhost/eye_corner_ghost.gd" id="1_isg7c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mogyo"]
 
@@ -18,7 +18,9 @@ radius = 0.2
 height = 1.5
 
 [node name="EyeCornerGhost" type="CharacterBody3D"]
-script = ExtResource("1_s848n")
+script = ExtResource("1_isg7c")
+monster_name = "Eye corner ghost"
+move_speed = 100.0
 
 [node name="Model" type="Node3D" parent="."]
 
