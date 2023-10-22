@@ -1,26 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://cyxi348muo0a4"]
 
 [ext_resource type="Script" path="res://src/Monster/EyeCornerGhost/eye_corner_ghost.gd" id="1_isg7c"]
+[ext_resource type="AudioStream" uid="uid://d3g7dg72v4wfk" path="res://asset/sfx/Evil Growl Sound - Beast Growl Sound Effect.ogg" id="2_fp8fh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umdhp"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.784314)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mogyo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14b3e"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_bmtwm"]
-material = SubResource("StandardMaterial3D_14b3e")
-top_radius = 0.1
-bottom_radius = 0.1
-height = 0.5
+material = SubResource("StandardMaterial3D_umdhp")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tfmai"]
-radius = 0.2
-height = 1.5
+radius = 0.4
+height = 1.8
 
 [node name="EyeCornerGhost" type="CharacterBody3D"]
 script = ExtResource("1_isg7c")
 monster_name = "Eye corner ghost"
-move_speed = 100.0
+move_speed = 1.0
 
 [node name="Model" type="Node3D" parent="."]
 
@@ -28,37 +25,11 @@ move_speed = 100.0
 mesh = SubResource("CapsuleMesh_mogyo")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.461477, 0.759894, 0)
-mesh = SubResource("CylinderMesh_bmtwm")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208857, 0.975059, 0.354011)
-mesh = SubResource("CylinderMesh_bmtwm")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251278, 0.69817, 0.340116)
-mesh = SubResource("CylinderMesh_bmtwm")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.362678, 0.842174, -0.138433)
-mesh = SubResource("CylinderMesh_bmtwm")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121427, 0.773329, -0.449921)
-mesh = SubResource("CylinderMesh_bmtwm")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.271957, 0.991744, -0.379337)
-mesh = SubResource("CylinderMesh_bmtwm")
-skeleton = NodePath("../..")
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_fp8fh")
+autoplay = true
+max_distance = 15.0
+bus = &"SFX"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.2

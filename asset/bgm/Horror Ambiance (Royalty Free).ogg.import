@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://jqf5vseqey31"
+path="res://.godot/imported/Horror Ambiance (Royalty Free).ogg-a8cb34bcffb6ca8fe3d3450734fbc32f.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/bgm/Horror Ambiance (Royalty Free).ogg"
+dest_files=["res://.godot/imported/Horror Ambiance (Royalty Free).ogg-a8cb34bcffb6ca8fe3d3450734fbc32f.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

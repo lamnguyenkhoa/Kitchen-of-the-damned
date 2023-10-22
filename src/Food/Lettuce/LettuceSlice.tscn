@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6gkgpbve41j2" path="res://addons/kaykit_restaurant_bits/Assets/gltf/restaurantbits_texture.png" id="2_pln60"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l74ao"]
-size = Vector3(0.8, 0.1, 0.8)
+size = Vector3(0.4, 0.05, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kopdy"]
 resource_name = "restaurant"
@@ -44,7 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_j1tgs")
 
 [node name="LettuceSlice" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_y3c3y")
 food_name = "Lettuce slice"
 
@@ -52,5 +52,6 @@ food_name = "Lettuce slice"
 shape = SubResource("BoxShape3D_l74ao")
 
 [node name="food_ingredient_lettuce_slice2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kjxma")
 skeleton = NodePath("")

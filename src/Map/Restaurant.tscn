@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c85xh3adubff8"]
+[gd_scene load_steps=20 format=3 uid="uid://c85xh3adubff8"]
 
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="3_ycdsl"]
 [ext_resource type="PackedScene" uid="uid://xulojom3ruro" path="res://src/Food/Cheese/Cheese.tscn" id="4_c7b80"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://chdf45q3onvhc" path="res://src/Food/Tomato/Tomato.tscn" id="9_fpidh"]
 [ext_resource type="PackedScene" uid="uid://bk6i4vbqnkjtv" path="res://src/Food/Meat/SteakFridge.tscn" id="10_41qgd"]
 [ext_resource type="PackedScene" uid="uid://cyxi348muo0a4" path="res://src/Monster/EyeCornerGhost/EyeCornerGhost.tscn" id="11_60olr"]
+[ext_resource type="AudioStream" uid="uid://jqf5vseqey31" path="res://asset/bgm/Horror Ambiance (Royalty Free).ogg" id="12_l5hku"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0l5"]
 size = Vector3(100, 1, 100)
@@ -142,7 +143,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.7, -27)
 collision_layer = 8
 collision_mask = 7
 roam_node_group = NodePath("../EyeCornerRoamNodeGroup")
-move_speed = 4.0
 
 [node name="EyeCornerRoamNodeGroup" type="Node3D" parent="."]
 
@@ -166,3 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
 
 [node name="Marker3D7" type="Marker3D" parent="EyeCornerRoamNodeGroup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 1, -2)
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_l5hku")
+bus = &"BGM"

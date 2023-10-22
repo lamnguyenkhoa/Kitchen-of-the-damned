@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3g7dg72v4wfk"
+path="res://.godot/imported/Evil Growl Sound - Beast Growl Sound Effect.ogg-ab3235f8c1c467578bf8f0b3e8e98108.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/sfx/Evil Growl Sound - Beast Growl Sound Effect.ogg"
+dest_files=["res://.godot/imported/Evil Growl Sound - Beast Growl Sound Effect.ogg-ab3235f8c1c467578bf8f0b3e8e98108.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -47,7 +47,7 @@ points = PackedVector3Array(-0.284273, 0.44998, -0.358961, -0.285898, 0.0499706,
 
 [node name="Cheese" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_5mp2x")
 food_name = "Cheese"
 chopped_prefab = ExtResource("2_2onli")
