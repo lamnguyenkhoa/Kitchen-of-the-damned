@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyxi348muo0a4"]
+[gd_scene load_steps=10 format=3 uid="uid://cyxi348muo0a4"]
 
 [ext_resource type="Script" path="res://src/Monster/EyeCornerGhost/eye_corner_ghost.gd" id="1_isg7c"]
 [ext_resource type="AudioStream" uid="uid://d3g7dg72v4wfk" path="res://asset/sfx/Evil Growl Sound - Beast Growl Sound Effect.ogg" id="2_fp8fh"]
+[ext_resource type="AudioStream" uid="uid://ok6qr5wlb7ha" path="res://asset/sfx/ghost jumpscare sound.ogg" id="2_k2l6g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umdhp"]
 transparency = 1
@@ -43,6 +44,7 @@ _data = {
 
 [node name="EyeCornerGhost" type="CharacterBody3D"]
 script = ExtResource("1_isg7c")
+jumpscare_sound = ExtResource("2_k2l6g")
 monster_name = "Eye corner ghost"
 move_speed = 1.0
 

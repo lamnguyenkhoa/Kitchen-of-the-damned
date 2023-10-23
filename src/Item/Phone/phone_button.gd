@@ -20,7 +20,6 @@ func _input(event):
 				phone.screen_label.text = ""
 			"Decline":
 				phone.screen_label.text = ""
-
 			"Up":
 				return
 			"Left":
@@ -39,13 +38,15 @@ func _input(event):
 				add_character_to_screen(self.name)
 
 func add_character_to_screen(character: String):
+	if phone.battery <= 0:
+		return
+		
 	if len(phone.screen_label.text) >= 18:
 		phone.screen_label.text = phone.screen_label.text.erase(0, 1)
 	phone.screen_label.text += character
 
 func _on_area_3d_mouse_entered() -> void:
 	is_selected = true
-
 
 func _on_area_3d_mouse_exited() -> void:
 	is_selected = false

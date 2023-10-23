@@ -1,6 +1,7 @@
 extends Monster
 
 @export var roam_node_group: Node3D
+@export var jumpscare_sound: AudioStream
 
 @onready var ghost_mesh: MeshInstance3D = $Model/MeshInstance3D
 
@@ -12,6 +13,7 @@ var can_be_seen = false
 
 const ANGLE_THRESHOLD = 45
 const DEFAULT_GHOST_MATERIAL_ALPHA = 0.3 # in 0-1 scale
+const DAMAGE = 25
 
 func _ready():
 	# Convert Array[Node] to Array[Marker3D]
@@ -57,5 +59,6 @@ func _on_ghost_area_body_entered(body:Node3D) -> void:
 	if despawned:
 		return
 	if body is FPSPlayer:
-		print("Damaged")
+		GameManager.player.damaged(DAMAGE)
 		GameManager.call_deferred("despawn_eye_corner_ghost")
+		SoundManager.play_sound(jumpscare_sound)

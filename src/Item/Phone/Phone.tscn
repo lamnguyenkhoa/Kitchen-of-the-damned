@@ -108,7 +108,7 @@ autowrap_mode = 1
 width = 150.0
 
 [node name="FlashlightIcon" type="Sprite3D" parent="."]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.157753, 0.727814, 0.2)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.072617, 0.727814, 0.2)
 texture = ExtResource("3_dxrbg")
 
 [node name="TimeLabel" type="Label3D" parent="."]
@@ -127,8 +127,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.320317, 0.722713, 0.171)
 pixel_size = 0.004
 modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
 outline_modulate = Color(0, 0, 0, 0)
-text = "69%"
-font_size = 14
+text = "100%"
+font_size = 20
 horizontal_alignment = 0
 autowrap_mode = 1
 width = 150.0
@@ -141,7 +141,7 @@ text = "So this is what you gonna see. Please go ahead and follow the instructio
 font_size = 28
 autowrap_mode = 2
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="PhoneLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.538285, 0.592198)
 light_color = Color(0.666667, 0.858824, 0.666667, 1)
 light_energy = 0.15
@@ -149,3 +149,16 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 omni_range = 0.3
 omni_shadow_mode = 0
+
+[node name="FlashlightBatteryTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Flashlight" type="SpotLight3D" parent="."]
+transform = Transform3D(0.939693, 0.029809, 0.340719, 0, 0.996195, -0.0871557, -0.34202, 0.0818996, 0.936117, 0, 0.72891, -0.246432)
+light_color = Color(0.913725, 1, 0.886275, 1)
+light_cull_mask = 4294967293
+spot_range = 40.0
+spot_angle = 35.0
+
+[connection signal="timeout" from="FlashlightBatteryTimer" to="." method="_on_flashlight_battery_timer_timeout"]

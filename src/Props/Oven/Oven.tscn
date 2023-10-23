@@ -82,21 +82,6 @@ size = Vector3(1.3, 1.2, 0.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_droma"]
 size = Vector3(2, 2, 2)
 
-[sub_resource type="Animation" id="Animation_uh4r2"]
-resource_name = "open_door"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("oven_door:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_d2n1p"]
 resource_name = "close_door"
 tracks/0/type = "value"
@@ -112,16 +97,30 @@ tracks/0/keys = {
 "values": [Vector3(1.5708, 0, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_uh4r2"]
+resource_name = "open_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("oven_door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sy64i"]
 _data = {
 "close_door": SubResource("Animation_d2n1p"),
 "open_door": SubResource("Animation_uh4r2")
 }
 
-[node name="Oven" type="StaticBody3D" node_paths=PackedStringArray("oven_door")]
+[node name="Oven" type="StaticBody3D"]
 collision_layer = 6
 script = ExtResource("1_iyll0")
-oven_door = NodePath("oven_door/OvenDoor")
 type = 2
 
 [node name="oven" type="MeshInstance3D" parent="."]

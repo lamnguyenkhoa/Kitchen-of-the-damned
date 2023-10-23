@@ -9,9 +9,11 @@ class_name FPSPlayer
 @onready var phone_hold_pos: Marker3D = $Head/Camera3d/PhoneHoldPos
 @onready var phone_inspect_pos: Marker3D = $Head/Camera3d/PhoneInspectPos
 @onready var phone_holder = $Head/Camera3d/PhoneHolder
-@onready var flashlight: SpotLight3D = $Head/Camera3d/Flashlight
 
-@onready var interact_label = $CanvasLayer/InteractLabel
+@onready var interact_label: Label = $CanvasLayer/InteractLabel
+@onready var slash_vfx: TextureRect = $CanvasLayer/Slash
+@onready var screen_flash: TextureRect = $CanvasLayer/ScreenFlash
+
 
 var mouse_sensibility = 1500
 var mouse_relative_x = 0
@@ -20,9 +22,7 @@ var is_inspecting = false
 var is_holding_item = false
 var looked_at_collider: Object = null
 var looked_at_collider_idx: int = 0
-var hp = 100
 
-const MAX_HP = 100
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const THROW_STRENGTH = 15
@@ -34,7 +34,6 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	aim_ray.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	hp = MAX_HP
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -45,7 +44,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	if Input.is_action_just_pressed("inspect_item"):
+	if Input.is_action_just_pressed("inspect_item") and phone_holder.get_child_count() == 1:
 		var tween = get_tree().create_tween()
 		if not is_inspecting:
 			is_inspecting = true
@@ -67,14 +66,14 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	# Look at pickup-able item
-	if aim_ray.is_colliding():
+	if aim_ray.is_colliding() and not is_inspecting:
 		looked_at_collider = aim_ray.get_collider()
 		looked_at_collider_idx = aim_ray.get_collider_shape()
 		if looked_at_collider is Interactable:
 			var interactable = looked_at_collider as Interactable
 			interact_label.text = interactable.get_interact_label_text()
 			interact_label.visible = true
-			if Input.is_action_just_pressed("pickup"):
+			if Input.is_action_just_pressed("interact"):
 				interactable.interact()
 		else:
 			interact_label.visible = false
@@ -83,14 +82,14 @@ func _physics_process(delta):
 		interact_label.visible = false
 		looked_at_collider = null
 
-	if Input.is_action_just_pressed("drop") and is_holding_item:
+	if Input.is_action_just_pressed("drop") and is_holding_item and not is_inspecting:
 		drop_item()
 
-	if Input.is_action_just_pressed("throw") and is_holding_item:
+	if Input.is_action_just_pressed("throw") and is_holding_item and not is_inspecting:
 		throw_item()
 
-	if Input.is_action_just_pressed("flashlight_toggle"):
-		toggle_flashlight()
+	if Input.is_action_just_pressed("flashlight_toggle") and phone_holder.get_child_count() == 1:
+		phone.toggle_flashlight()
 
 	move_and_slide()
 
@@ -101,11 +100,6 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
-
-
-func toggle_flashlight():
-	flashlight.visible = !flashlight.visible
-	phone.flashlight_icon.visible = flashlight.visible
 
 
 func get_look_direction() -> Vector3:
@@ -166,11 +160,21 @@ func destroy_current_holding_item():
 
 
 func damaged(amount: int):
-	hp -= amount
-	hp = clamp(hp, 0, MAX_HP)
+	screen_flash.modulate = Color(1, 0, 0, 0.3)
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(screen_flash, "modulate:a", 0, 2)
 
-	if hp < 0:
+	slash_vfx.modulate.a = 1
+	var tween = get_tree().create_tween()
+	tween.tween_property(slash_vfx, "modulate:a", 0.8, 1)
+	tween.tween_property(slash_vfx, "modulate:a", 0, 2)
+
+	# If phone don't have battery anymore (or don't have phone) to protect you,
+	# you die next hit
+	if phone.battery <= 0 or phone_holder.get_child_count() == 0:
 		game_over()
+
+	phone.battery -= amount
 
 
 func game_over():

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://7gv6q50fuutj"]
+[gd_scene load_steps=8 format=3 uid="uid://7gv6q50fuutj"]
 
 [ext_resource type="Script" path="res://src/Player/fps_player.gd" id="1_sy51s"]
 [ext_resource type="PackedScene" uid="uid://bvbdwb4mdybul" path="res://src/Item/Phone/Phone.tscn" id="2_si6t8"]
+[ext_resource type="Texture2D" uid="uid://c8miexpdd22mf" path="res://asset/sprites/square.png" id="3_m4lx3"]
 [ext_resource type="Texture2D" uid="uid://d148jfbwbx0sl" path="res://asset/sprites/circle.png" id="4_bwy3k"]
+[ext_resource type="Texture2D" uid="uid://dgx3gbuf5ntdm" path="res://asset/sprites/slash.png" id="4_xpiuo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 radius = 0.7
@@ -45,13 +47,34 @@ transform = Transform3D(0.939693, 0.048782, -0.338523, 0, 0.989776, 0.142629, 0.
 [node name="Phone" parent="Head/Camera3d/PhoneHolder" instance=ExtResource("2_si6t8")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="Flashlight" type="SpotLight3D" parent="Head/Camera3d"]
-light_color = Color(0.913725, 1, 0.886275, 1)
-light_cull_mask = 4294967293
-spot_range = 40.0
-spot_angle = 30.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScreenFlash" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_m4lx3")
+
+[node name="Slash" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 0.0352941, 0, 0)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -180.0
+offset_right = -151.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("4_xpiuo")
 
 [node name="InteractLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
@@ -98,3 +121,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_bwy3k")
 expand_mode = 1
+
+[node name="PlayerSurroundLight" type="OmniLight3D" parent="."]
+light_color = Color(0.364706, 0.537255, 0.54902, 1)
+light_energy = 0.25
+omni_range = 2.0

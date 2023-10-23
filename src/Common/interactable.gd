@@ -5,7 +5,8 @@ enum InteractableType {
     FOOD,
     FOOD_CONTAINER,
     COOKING_STATION,
-    ITEM
+    ITEM,
+    OTHER
 }
 
 @export var type: InteractableType

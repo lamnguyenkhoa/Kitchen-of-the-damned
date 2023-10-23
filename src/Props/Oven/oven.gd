@@ -4,8 +4,7 @@ class_name Oven
 @onready var baked_item_pos: Marker3D = $BakeItemPos
 @onready var oven_light: OmniLight3D = $OmniLight3D
 @onready var oven_timer: Timer = $OvenTimer
-
-@export var oven_door: OvenDoor
+@onready var oven_door: OvenDoor = $oven_door/OvenDoor
 
 enum OvenState {
 	EMPTY,
