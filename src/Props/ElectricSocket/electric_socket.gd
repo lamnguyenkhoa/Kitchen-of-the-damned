@@ -28,6 +28,8 @@ func interact():
 		GameManager.player.phone_holder.add_child(phone)
 		phone.position = Vector3(0, 0, 0)
 		phone = null
+	GameManager.player.update_control_label()
+
 
 func get_interact_label_text() -> String:
 	if GameManager.player.phone_holder.get_child_count() == 1:

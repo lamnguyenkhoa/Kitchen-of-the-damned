@@ -9,21 +9,32 @@ class_name FPSPlayer
 @onready var phone_hold_pos: Marker3D = $Head/Camera3d/PhoneHoldPos
 @onready var phone_inspect_pos: Marker3D = $Head/Camera3d/PhoneInspectPos
 @onready var phone_holder = $Head/Camera3d/PhoneHolder
+@onready var head = $Head
+@onready var stand_collision: CollisionShape3D = $StandCollision
+@onready var crouch_collision: CollisionShape3D = $CrouchCollision
 
 @onready var interact_label: Label = $CanvasLayer/InteractLabel
 @onready var slash_vfx: TextureRect = $CanvasLayer/Slash
 @onready var screen_flash: TextureRect = $CanvasLayer/ScreenFlash
+@onready var control_label: Label = $CanvasLayer/ControlLabel
 
 
 var mouse_sensibility = 1500
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 var is_inspecting = false
-var is_holding_item = false
 var looked_at_collider: Object = null
 var looked_at_collider_idx: int = 0
+var is_crouching = false
+var current_movespeed = 0
 
-const SPEED = 5.0
+var is_holding_item = false :
+	set(value):
+		is_holding_item = value
+		update_control_label()
+
+const BASE_SPEED = 5.0
+const CROUCH_SPEED_MUL_MODIFIER = 0.5
 const JUMP_VELOCITY = 4.5
 const THROW_STRENGTH = 15
 
@@ -34,6 +45,8 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	aim_ray.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	update_control_label()
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -56,14 +69,18 @@ func _physics_process(delta):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	# Get the input direction and handle the movement/deceleration.
+	current_movespeed = BASE_SPEED
+	if is_crouching:
+		current_movespeed *= CROUCH_SPEED_MUL_MODIFIER
+
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * current_movespeed
+		velocity.z = direction.z * current_movespeed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, current_movespeed)
+		velocity.z = move_toward(velocity.z, 0, current_movespeed)
 
 	# Look at pickup-able item
 	if aim_ray.is_colliding() and not is_inspecting:
@@ -91,6 +108,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("flashlight_toggle") and phone_holder.get_child_count() == 1:
 		phone.toggle_flashlight()
 
+	if Input.is_action_just_pressed("crouch"):
+		crouch()
+
+
 	move_and_slide()
 
 func _input(event):
@@ -101,6 +122,19 @@ func _input(event):
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
 
+
+func crouch():
+	var tween = get_tree().create_tween()
+	if is_crouching:
+		tween.tween_property(head, "position:y", 0, 0.25)
+		stand_collision.disabled = false
+		crouch_collision.disabled = true
+		is_crouching = false
+	else:
+		tween.tween_property(head, "position:y", -0.7, 0.25)
+		stand_collision.disabled = true
+		crouch_collision.disabled = false
+		is_crouching = true
 
 func get_look_direction() -> Vector3:
 	var direction = -camera.get_global_transform().basis.z
@@ -158,6 +192,13 @@ func destroy_current_holding_item():
 	var item = drop_item()
 	item.queue_free()
 
+func update_control_label():
+	control_label.text = "E: Interact | C: Crouch"
+	if phone_holder.get_child_count() == 1:
+		control_label.text += " | Tab: Phone | F: Flashlight"
+	if is_holding_item:
+		control_label.text += " | G: Drop | LMB: Throw"
+
 
 func damaged(amount: int):
 	screen_flash.modulate = Color(1, 0, 0, 0.3)
@@ -173,7 +214,6 @@ func damaged(amount: int):
 	# you die next hit
 	if phone.battery <= 0 or phone_holder.get_child_count() == 0:
 		game_over()
-
 	phone.battery -= amount
 
 

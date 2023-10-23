@@ -137,7 +137,6 @@ width = 150.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000843942, 1.47764, 0.171133)
 pixel_size = 0.004
 no_depth_test = true
-text = "So this is what you gonna see. Please go ahead and follow the instruction. "
 font_size = 28
 autowrap_mode = 2
 
