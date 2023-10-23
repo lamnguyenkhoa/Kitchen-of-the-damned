@@ -6,10 +6,10 @@ class_name ElectricSocket
 
 var phone: Phone = null
 
-const PHONE_BATTERY_PER_SEC = 5
+const PHONE_BATTERY_PER_SEC = 2
 
 func interact():
-	if phone_holder.get_child_count() == 0:
+	if GameManager.player.phone_holder.get_child_count() == 1:
 		charge_phone_timer.start()
 		phone = GameManager.player.phone
 		var phone_parent = phone.get_parent()
@@ -21,7 +21,7 @@ func interact():
 		GameManager.player.phone_holder.position = GameManager.player.phone_hold_pos.position
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		phone.toggle_flashlight(true)
-	else:
+	elif phone != null:
 		charge_phone_timer.stop()
 		var phone_parent = phone.get_parent()
 		phone_parent.remove_child(phone)
@@ -30,10 +30,11 @@ func interact():
 		phone = null
 
 func get_interact_label_text() -> String:
-	if phone_holder.get_child_count() == 0:
+	if GameManager.player.phone_holder.get_child_count() == 1:
 		return "Charge your phone"
-	else:
-		return "Take your phone"
+	elif phone != null:
+			return "Take your phone"
+	return "Charge your phone (you don't have phone)"
 
 
 func _on_charge_phone_timer_timeout() -> void:

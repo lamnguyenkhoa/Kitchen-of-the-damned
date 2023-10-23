@@ -124,5 +124,5 @@ expand_mode = 1
 
 [node name="PlayerSurroundLight" type="OmniLight3D" parent="."]
 light_color = Color(0.364706, 0.537255, 0.54902, 1)
-light_energy = 0.25
-omni_range = 2.0
+light_energy = 0.2
+omni_range = 3.0

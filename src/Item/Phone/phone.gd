@@ -17,7 +17,6 @@ var battery: int = 100 :
 		battery_label.text = str(battery) + "%"
 		if battery == 0:
 			no_battery_shutdown()
-			GameManager.player.flashlight.visible = false
 		else:
 			if phone_light.visible == false:
 				has_battery_startup()
@@ -52,6 +51,7 @@ func toggle_flashlight(force_off: bool = false):
 func no_battery_shutdown():
 	phone_light.visible = false
 	flashlight_icon.visible = false
+	flash_light.visible = false
 	battery_label.visible = false
 	time_label.visible = false
 	screen_label.text = ""

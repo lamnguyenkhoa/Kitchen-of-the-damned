@@ -68,6 +68,7 @@ shadow_enabled = true
 
 [node name="Roof" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 4.2, -3.491)
+visible = false
 mesh = SubResource("BoxMesh_q6syv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof"]
@@ -106,6 +107,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.4, 10)
 
 [node name="ElectricSocket" parent="PropHolder" instance=ExtResource("9_vsaf6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.3, 1, 24)
+
+[node name="ElectricSocket2" parent="PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 7.69999, 2, -2.7)
+
+[node name="ElectricSocket3" parent="PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 48.7, 2, -6.50001)
+
+[node name="ElectricSocket4" parent="PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -4.70001, 1, -15)
+
+[node name="ElectricSocket5" parent="PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -26.7, 1, 6.67572e-06)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nxuf7")

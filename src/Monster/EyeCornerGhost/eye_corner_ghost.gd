@@ -13,7 +13,7 @@ var can_be_seen = false
 
 const ANGLE_THRESHOLD = 45
 const DEFAULT_GHOST_MATERIAL_ALPHA = 0.3 # in 0-1 scale
-const DAMAGE = 25
+const DAMAGE = 50
 
 func _ready():
 	# Convert Array[Node] to Array[Marker3D]
