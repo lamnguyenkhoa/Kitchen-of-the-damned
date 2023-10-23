@@ -38,3 +38,11 @@ func _on_respawn_eye_corner_ghost_timer_timeout() -> void:
 	eye_corner_ghost.visible = true
 	eye_corner_ghost.can_be_seen = true
 	eye_corner_ghost.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func reset_state():
+	restaurant = get_tree().get_root().get_node("Restaurant")
+	player = restaurant.get_node("Player")
+	eye_corner_ghost = restaurant.get_node("EyeCornerGhost")
+	eye_corner_ghost_timer.stop()
+	

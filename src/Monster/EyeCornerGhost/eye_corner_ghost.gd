@@ -2,8 +2,7 @@ extends Monster
 
 @export var roam_node_group: Node3D
 @export var jumpscare_sound: AudioStream
-
-@onready var ghost_mesh: MeshInstance3D = $Model/MeshInstance3D
+@export var ghost_mesh: MeshInstance3D
 
 var roam_nodes: Array[Marker3D] = []
 var roam_node_idx = 0
@@ -11,8 +10,8 @@ var despawned = false
 var ghost_material: StandardMaterial3D
 var can_be_seen = false
 
-const ANGLE_THRESHOLD = 45
-const DEFAULT_GHOST_MATERIAL_ALPHA = 0.3 # in 0-1 scale
+const ANGLE_THRESHOLD = 35
+const DEFAULT_GHOST_MATERIAL_ALPHA = 1
 const DAMAGE = 50
 
 func _ready():
@@ -30,7 +29,7 @@ func _process(delta: float) -> void:
 		can_be_seen = false
 	else:
 		can_be_seen = true
-	var alpha_perc = remap(look_angle, ANGLE_THRESHOLD, 2 * ANGLE_THRESHOLD, 0, DEFAULT_GHOST_MATERIAL_ALPHA)
+	var alpha_perc = remap(look_angle, ANGLE_THRESHOLD, 2 * ANGLE_THRESHOLD, 0.2, DEFAULT_GHOST_MATERIAL_ALPHA)
 	alpha_perc = clamp(alpha_perc, 0, DEFAULT_GHOST_MATERIAL_ALPHA)
 	ghost_material.albedo_color.a = alpha_perc
 

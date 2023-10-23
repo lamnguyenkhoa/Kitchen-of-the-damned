@@ -41,9 +41,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hxnty")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_8pe08"]
-height = 0.12
-radius = 0.4
+[sub_resource type="BoxShape3D" id="BoxShape3D_nryoy"]
+size = Vector3(0.8, 0.1, 0.8)
 
 [node name="CheeseSlice" type="RigidBody3D" node_paths=PackedStringArray("food_mesh")]
 collision_layer = 4
@@ -59,4 +58,4 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.015, 0)
-shape = SubResource("CylinderShape3D_8pe08")
+shape = SubResource("BoxShape3D_nryoy")

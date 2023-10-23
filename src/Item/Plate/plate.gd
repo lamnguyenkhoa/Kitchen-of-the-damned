@@ -19,8 +19,6 @@ func interact():
 		food_item.process_mode = Node.PROCESS_MODE_DISABLED
 		var food_height = food_item.food_mesh.get_aabb().size.y * food_item.food_mesh.scale.y
 		food_total_height += food_height
-		print(food_item.food_mesh.get_aabb())
-
 		player.is_holding_item = false
 
 

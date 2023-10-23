@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ghost
+* source:	https://sketchfab.com/3d-models/ghost-0120186d38864843b7cee70536185083
+* author:	drmiw (https://sketchfab.com/drmiw)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ghost" (https://sketchfab.com/3d-models/ghost-0120186d38864843b7cee70536185083) by drmiw (https://sketchfab.com/drmiw) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
