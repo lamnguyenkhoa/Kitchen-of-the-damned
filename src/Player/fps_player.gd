@@ -17,6 +17,7 @@ class_name FPSPlayer
 @onready var slash_vfx: TextureRect = $CanvasLayer/Slash
 @onready var screen_flash: TextureRect = $CanvasLayer/ScreenFlash
 @onready var control_label: Label = $CanvasLayer/ControlLabel
+@onready var gameover_screen = $CanvasLayer/GameoverScreen
 
 
 var mouse_sensibility = 1500
@@ -27,6 +28,7 @@ var looked_at_collider: Object = null
 var looked_at_collider_idx: int = 0
 var is_crouching = false
 var current_movespeed = 0
+var died = false
 
 var is_holding_item = false :
 	set(value):
@@ -49,6 +51,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if died:
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -115,6 +120,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _input(event):
+	if died:
+		return
+
 	if event is InputEventMouseMotion and not is_inspecting:
 		rotation.y -= event.relative.x / mouse_sensibility
 		camera.rotation.x -= event.relative.y / mouse_sensibility
@@ -201,6 +209,9 @@ func update_control_label():
 
 
 func damaged(amount: int):
+	if died:
+		return
+
 	screen_flash.modulate = Color(1, 0, 0, 0.3)
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(screen_flash, "modulate:a", 0, 2)
@@ -219,4 +230,15 @@ func damaged(amount: int):
 
 func game_over():
 	print("GameOver")
-	return
+	screen_flash.visible = false
+	slash_vfx.visible = false
+	interact_label.visible = false
+	gameover_screen.visible = true
+	died = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _on_retry_button_pressed() -> void:
+	ScreenTransitionManager.fade_out(0.7)
+	await ScreenTransitionManager.transitioned
+	await get_tree().create_timer(0.6).timeout
+	get_tree().reload_current_scene()

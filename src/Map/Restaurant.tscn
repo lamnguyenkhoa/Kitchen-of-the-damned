@@ -72,6 +72,7 @@ shadow_enabled = true
 
 [node name="Roof" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 4.2, -3.491)
+visible = false
 mesh = SubResource("BoxMesh_q6syv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof"]
@@ -140,6 +141,18 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.2, 0
 
 [node name="RedDoor3" parent="PropHolder" instance=ExtResource("12_jcng2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2, 0.5, -27.2)
+
+[node name="TrashBin" parent="PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 16)
+
+[node name="TrashBin2" parent="PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -16)
+
+[node name="TrashBin3" parent="PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 1, -16)
+
+[node name="TrashBin4" parent="PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 1, 1)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nxuf7")
@@ -210,6 +223,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 1, -2)
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_l5hku")
 bus = &"BGM"
-
-[node name="TrashBin" parent="." instance=ExtResource("17_vcg8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 16)
