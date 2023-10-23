@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="ScreamJam23"
-run/main_scene="res://src/Map/Restaurant.tscn"
+run/main_scene="res://src/Map/Titlescreen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
 [autoload]
 
 GameManager="*res://src/Singleton/GameManager.tscn"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
+ScreenTransitionManager="*res://src/Singleton/ScreenTransitionManager.tscn"
 
 [debug]
 

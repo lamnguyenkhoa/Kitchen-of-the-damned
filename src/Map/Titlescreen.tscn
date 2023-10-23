@@ -1,0 +1,369 @@
+[gd_scene load_steps=20 format=3 uid="uid://crhq0c0q37d7p"]
+
+[ext_resource type="MeshLibrary" uid="uid://uutgoc4olpnm" path="res://src/Map/KitchenMeshLibrary.tres" id="1_iwrfq"]
+[ext_resource type="Script" path="res://src/Map/titlescreen.gd" id="1_rnxcr"]
+[ext_resource type="PackedScene" uid="uid://xh6pnqdyghb" path="res://src/Item/Phone/PhoneButton.tscn" id="1_x028l"]
+[ext_resource type="PackedScene" uid="uid://c85xh3adubff8" path="res://src/Map/Restaurant.tscn" id="2_450va"]
+[ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="2_ghc1l"]
+[ext_resource type="Texture2D" uid="uid://bj7lauuqxnjm0" path="res://asset/sprites/flashlight-icon.png" id="2_resab"]
+[ext_resource type="PackedScene" uid="uid://mbu24mytr3fi" path="res://src/Props/Door/RedDoor.tscn" id="3_5baqw"]
+[ext_resource type="PackedScene" uid="uid://dmjhdm3dkpnuu" path="res://src/Props/Oven/Oven.tscn" id="4_dtl1b"]
+[ext_resource type="AudioStream" uid="uid://jqf5vseqey31" path="res://asset/bgm/Horror Ambiance (Royalty Free).ogg" id="7_i7jgq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx3o7"]
+albedo_color = Color(0.439216, 0.188235, 0.0431373, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p35xe"]
+material = SubResource("StandardMaterial3D_hx3o7")
+size = Vector3(1, 2, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2ehf"]
+albedo_color = Color(0.792157, 1, 0.647059, 1)
+emission_enabled = true
+emission = Color(0.466667, 0.666667, 0.466667, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7rkl8"]
+material = SubResource("StandardMaterial3D_j2ehf")
+size = Vector3(0.7, 0.5, 0.1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ckxg6"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_ckxg6")
+
+[sub_resource type="Environment" id="Environment_ixvkt"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+background_energy_multiplier = 0.35
+sky = SubResource("Sky_ivwug")
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_08oun"]
+size = Vector3(80, 0.5, 70)
+
+[sub_resource type="Animation" id="Animation_ryksn"]
+resource_name = "idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Phone:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.698132, 0), Vector3(0.0872665, -0.785398, 0), Vector3(0, -0.872665, 0), Vector3(-0.0872665, -0.785398, 0), Vector3(0, -0.698132, 0), Vector3(0, -0.698132, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1.2, 2.1, 3.1, 4.9, 6.1, 7, 8.5, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.128317, -0.610429, 1.5211e-09), Vector3(-0.129154, -0.523599, 0), Vector3(-0.129154, -0.523599, 0), Vector3(-0.129154, -0.610865, 0), Vector3(-0.129154, -0.610865, 0), Vector3(-0.129154, -0.698132, 0), Vector3(-0.129154, -0.698132, 0), Vector3(-0.129058, -0.610815, 1.74268e-10), Vector3(-0.129058, -0.610815, 1.74268e-10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hk0mo"]
+_data = {
+"idle": SubResource("Animation_ryksn")
+}
+
+[node name="Titlescreen" type="Node3D"]
+script = ExtResource("1_rnxcr")
+scene_after_start = ExtResource("2_450va")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Titlescreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Titlescreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.5
+offset_top = 34.0
+offset_right = 276.5
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Kitchen of the damned"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Titlescreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = 76.0
+offset_right = 83.5
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Start game"
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Setting"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+
+[node name="SettingMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.770202, 0.0821413, -0.632488, 1.28516e-11, 0.991672, 0.128789, 0.6378, -0.0991932, 0.763788, 3.85271, 2.43109, -16.1236)
+
+[node name="Phone" type="Node3D" parent="Camera3D"]
+transform = Transform3D(0.147801, 0.00553299, -0.134627, 0, 0.199831, 0.00821281, 0.13474, -0.00606929, 0.147676, 0.535, -0.323, -0.707)
+
+[node name="Body" type="MeshInstance3D" parent="Camera3D/Phone"]
+layers = 2
+mesh = SubResource("BoxMesh_p35xe")
+
+[node name="Screen" type="MeshInstance3D" parent="Camera3D/Phone/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.522292, 0.120616)
+layers = 2
+mesh = SubResource("BoxMesh_7rkl8")
+skeleton = NodePath("../..")
+
+[node name="Accept" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, 0.113175, 0.133878)
+script = null
+
+[node name="Decline" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299784, 0.106579, 0.133878)
+script = null
+
+[node name="Up" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020089, 0.0576021, 0.133878)
+script = null
+
+[node name="Down" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020089, -0.0839863, 0.133878)
+script = null
+
+[node name="Right" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116466, -0.0263603, 0.133878)
+script = null
+
+[node name="Left" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.164646, -0.0263603, 0.133878)
+script = null
+
+[node name="1" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.254841, 0.133878)
+script = null
+
+[node name="4" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.435846, 0.133878)
+script = null
+
+[node name="7" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.609573, 0.133878)
+script = null
+
+[node name="10" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310542, -0.786618, 0.133878)
+script = null
+
+[node name="3" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.255032, 0.133878)
+script = null
+
+[node name="6" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.435846, 0.133878)
+script = null
+
+[node name="9" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.609573, 0.133878)
+script = null
+
+[node name="12" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29772, -0.786618, 0.133878)
+script = null
+
+[node name="2" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.309223, 0.133878)
+script = null
+
+[node name="5" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.490037, 0.133878)
+script = null
+
+[node name="8" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.663765, 0.133878)
+script = null
+
+[node name="11" parent="Camera3D/Phone/Body" instance=ExtResource("1_x028l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00926512, -0.840809, 0.133878)
+script = null
+
+[node name="PhoneBrand" type="Label3D" parent="Camera3D/Phone/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000844002, 0.877642, 0.171133)
+pixel_size = 0.004
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 0.537255)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Hellkia"
+autowrap_mode = 1
+width = 150.0
+
+[node name="ScreenLabel" type="Label3D" parent="Camera3D/Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299156, 0.277642, 0.171133)
+pixel_size = 0.004
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
+outline_modulate = Color(0, 0, 0, 0)
+font_size = 28
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 1
+width = 150.0
+
+[node name="FlashlightIcon" type="Sprite3D" parent="Camera3D/Phone"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.072617, 0.727814, 0.2)
+texture = ExtResource("2_resab")
+
+[node name="TimeLabel" type="Label3D" parent="Camera3D/Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.320595, 0.722713, 0.171)
+pixel_size = 0.004
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "7:07PM"
+font_size = 14
+horizontal_alignment = 2
+autowrap_mode = 1
+width = 150.0
+
+[node name="BatteryLabel" type="Label3D" parent="Camera3D/Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.320317, 0.722713, 0.171)
+pixel_size = 0.004
+modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "67%"
+font_size = 20
+horizontal_alignment = 0
+autowrap_mode = 1
+width = 150.0
+
+[node name="CallTranscript" type="Label3D" parent="Camera3D/Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000843942, 1.47764, 0.171133)
+pixel_size = 0.004
+no_depth_test = true
+font_size = 28
+autowrap_mode = 2
+
+[node name="PhoneLight" type="OmniLight3D" parent="Camera3D/Phone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.538285, 0.592198)
+light_color = Color(0.666667, 0.858824, 0.666667, 1)
+light_energy = 0.15
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 0.3
+omni_shadow_mode = 0
+
+[node name="FlashlightBatteryTimer" type="Timer" parent="Camera3D/Phone"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D/Phone"]
+transform = Transform3D(0.939693, 0.029809, 0.340719, 0, 0.996195, -0.0871557, -0.34202, 0.0818996, 0.936117, 0, 0.72891, -0.246432)
+light_color = Color(0.913725, 1, 0.886275, 1)
+light_cull_mask = 4294967293
+spot_range = 40.0
+spot_angle = 35.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ixvkt")
+
+[node name="Scene" type="Node3D" parent="."]
+
+[node name="FloorGridMap" type="GridMap" parent="Scene"]
+mesh_library = ExtResource("1_iwrfq")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 2
+data = {
+"cells": PackedInt32Array(65530, 65522, 655361, 65530, 65523, 655361, 65530, 65524, 655361, 65530, 65525, 655361, 65530, 65526, 655361, 65530, 65527, 655361, 65530, 65528, 655361, 65530, 65529, 655361, 65530, 65530, 655361, 65530, 65531, 655361, 65530, 65532, 655361, 65530, 65534, 655361, 65530, 65535, 655361, 65530, 0, 655361, 65530, 1, 655361, 65531, 65526, 655361, 65531, 65527, 655361, 65531, 65530, 655361, 65531, 65531, 655361, 65532, 65522, 655361, 65532, 65526, 655361, 65532, 65527, 655361, 65532, 65530, 655361, 65532, 65531, 655361, 65533, 65522, 655361, 65533, 65526, 655361, 65533, 65527, 655361, 65533, 65530, 655361, 65533, 65531, 655361, 65534, 65522, 655361, 65534, 65525, 655361, 65534, 65526, 655361, 65534, 65527, 655361, 65534, 65528, 655361, 65534, 65529, 655361, 65534, 65530, 655361, 65534, 65531, 655361, 65534, 65532, 655361, 65535, 65522, 655361, 65535, 65523, 655361, 65535, 65524, 655361, 65535, 65525, 655361, 65535, 65526, 655361, 65535, 65527, 655361, 65535, 65528, 655361, 65535, 65529, 655361, 65535, 65530, 655361, 65535, 65531, 655361, 65535, 65532, 655361, 0, 65522, 655361, 0, 65523, 655361, 0, 65524, 655361, 0, 65525, 655361, 0, 65526, 655361, 0, 65527, 655361, 0, 65528, 655361, 0, 65529, 655361, 0, 65530, 655361, 0, 65531, 655361, 0, 65532, 655361, 1, 65522, 655361, 1, 65525, 655361, 1, 65526, 655361, 1, 65527, 655361, 1, 65528, 655361, 1, 65529, 655361, 1, 65530, 655361, 1, 65531, 655361, 1, 65532, 655361, 1, 65533, 655361, 2, 65522, 655361, 2, 65525, 655361, 2, 65526, 655361, 2, 65527, 655361, 2, 65528, 655361, 2, 65529, 655361, 2, 65530, 655361, 2, 65531, 655361, 2, 65532, 655361, 2, 65533, 655361, 3, 65525, 655361, 3, 65526, 655361, 3, 65527, 655361, 3, 65528, 655361, 3, 65529, 655361, 3, 65530, 655361, 3, 65531, 655361, 3, 65532, 655361, 4, 65525, 655361, 4, 65526, 655361, 4, 65527, 655361, 4, 65528, 655361, 4, 65529, 655361, 4, 65530, 655361, 4, 65531, 655361, 4, 65532, 655361, 5, 65525, 655361, 5, 65526, 655361, 5, 65527, 655361, 5, 65528, 655361, 5, 65529, 655361, 5, 65530, 655361, 5, 65531, 655361, 5, 65532, 655361, 6, 65525, 655361, 6, 65526, 655361, 6, 65527, 655361, 6, 65528, 655361, 6, 65529, 655361, 6, 65530, 655361, 6, 65531, 655361, 6, 65532, 655361, 7, 65525, 655361, 7, 65526, 655361, 7, 65527, 655361, 7, 65528, 655361, 7, 65529, 655361, 7, 65530, 655361, 7, 65531, 655361, 7, 65532, 655361, 8, 65525, 655361, 8, 65526, 655361, 8, 65527, 655361, 8, 65528, 655361, 8, 65529, 655361, 8, 65530, 655361, 8, 65531, 655361, 8, 65532, 655361, 9, 65525, 655361, 9, 65526, 655361, 9, 65527, 655361, 9, 65528, 655361, 9, 65529, 655361, 9, 65530, 655361, 9, 65531, 655361, 9, 65532, 655361, 9, 65533, 655361, 10, 65525, 655361, 10, 65526, 655361, 10, 65527, 655361, 10, 65528, 655361, 10, 65529, 655361, 10, 65530, 655361, 10, 65531, 655361, 10, 65532, 655361, 10, 65533, 655361, 11, 65525, 655361, 11, 65526, 655361, 11, 65527, 655361, 11, 65528, 655361, 11, 65529, 655361, 11, 65530, 655361, 11, 65531, 655361, 11, 65532, 655361, 12, 65525, 655361, 12, 65526, 655361, 12, 65527, 655361, 12, 65528, 655361, 12, 65529, 655361, 12, 65530, 655361, 12, 65531, 655361, 12, 65532, 655361, 13, 65525, 655361, 13, 65526, 655361, 13, 65527, 655361, 13, 65528, 655361, 13, 65529, 655361, 13, 65530, 655361, 13, 65531, 655361, 13, 65532, 655361, 14, 65525, 655361, 14, 65526, 655361, 14, 65527, 655361, 14, 65528, 655361, 14, 65529, 655361, 14, 65530, 655361, 14, 65531, 655361, 14, 65532, 655361, 15, 65526, 655361, 15, 65527, 655361)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WallGridMap" type="GridMap" parent="Scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh_library = ExtResource("1_iwrfq")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 2
+data = {
+"cells": PackedInt32Array(65516, 18, 1441934, 65521, 65530, 6, 65521, 1, 1441796, 65523, 65529, 7, 65523, 65531, 1048583, 65523, 3, 655364, 65525, 65513, 1048580, 65525, 65521, 1048580, 65525, 65529, 1048583, 65525, 65531, 655367, 65525, 65533, 1048580, 65527, 65515, 4, 65527, 65519, 4, 65527, 65523, 4, 65527, 65527, 4, 65528, 65517, 1048582, 65528, 65525, 1048582, 65529, 65515, 7, 65529, 65519, 7, 65529, 65523, 7, 65531, 65513, 1441799, 65531, 65521, 1441796, 65531, 65527, 655367, 65531, 65529, 1048583, 65533, 65511, 1441796, 65533, 65513, 655367, 65533, 65529, 655364, 65535, 65533, 4, 1, 65511, 1441796, 1, 65529, 655367, 1, 65531, 1048580, 3, 65513, 4, 3, 65531, 6, 5, 65531, 1048580, 7, 65513, 4, 7, 65529, 655364, 7, 65533, 4, 11, 65513, 4, 11, 65529, 655364, 11, 65533, 4, 15, 65513, 4, 15, 65529, 655364, 15, 65533, 4, 17, 65531, 1048580, 19, 65513, 4, 19, 65531, 6, 21, 65531, 1048580, 23, 65513, 4, 23, 65529, 655364, 23, 65533, 4, 27, 65513, 4, 27, 65529, 655364, 27, 65533, 655364, 29, 65513, 1441799, 29, 65515, 7, 29, 65519, 7, 29, 65521, 1048583, 29, 65523, 1048580, 29, 65527, 1048580, 29, 65533, 1441799, 30, 65517, 1048582, 31, 65513, 7, 31, 65515, 1048583, 31, 65521, 1048583, 31, 65525, 7, 31, 65527, 1048580, 31, 65529, 1441799, 31, 65531, 7)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="DecoGridMap" type="GridMap" parent="Scene"]
+mesh_library = ExtResource("2_ghc1l")
+cell_size = Vector3(1, 1, 1)
+cell_center_z = false
+collision_layer = 2
+data = {
+"cells": PackedInt32Array(131098, 65513, 119, 65542, 65514, 1441810, 65545, 65528, 1441811, 65523, 2, 655418, 2, 65514, 87, 2, 65518, 655456, 2, 65522, 97, 3, 65513, 74, 4, 65514, 87, 5, 65518, 91, 5, 65522, 91, 6, 65514, 87, 6, 65534, 88, 8, 65514, 82, 8, 65518, 91, 8, 65522, 91, 8, 65534, 88, 9, 65528, 655447, 10, 65514, 84, 10, 65534, 88, 11, 65518, 655451, 11, 65528, 655447, 12, 65514, 87, 12, 65529, 655434, 12, 65534, 88, 13, 65528, 655447, 14, 65513, 74, 14, 65514, 87, 14, 65529, 655434, 14, 65534, 95, 15, 65522, 655451, 18, 65514, 87, 18, 65522, 655451, 20, 65514, 87, 21, 65518, 655456, 21, 65522, 96, 22, 65514, 87, 22, 65528, 655418, 24, 65528, 655420, 27, 65521, 1441886, 27, 65524, 1441886, 27, 65527, 1441885)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Roof" type="MeshInstance3D" parent="Scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 4.2, -3.491)
+mesh = SubResource("BoxMesh_08oun")
+skeleton = NodePath("../..")
+
+[node name="RedDoor" parent="Scene" instance=ExtResource("3_5baqw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.0812, 0.518907, -19.7944)
+
+[node name="Oven" parent="Scene" instance=ExtResource("4_dtl1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, -21.7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_hk0mo")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_i7jgq")
+volume_db = -5.0
+autoplay = true
+bus = &"BGM"
+
+[connection signal="pressed" from="CanvasLayer/Titlescreen/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Titlescreen/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Titlescreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="Camera3D/Phone/FlashlightBatteryTimer" to="Camera3D/Phone" method="_on_flashlight_battery_timer_timeout" flags=18]

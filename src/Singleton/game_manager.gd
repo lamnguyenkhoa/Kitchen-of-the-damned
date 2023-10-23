@@ -9,12 +9,6 @@ var eye_corner_ghost: Monster
 const SAFE_SPAWN_CHECK_DISTANCE = 10
 const EYE_CORNER_GHOST_RESPAWN_TIME = 15
 
-func _ready() -> void:
-	restaurant = get_tree().get_root().get_node("Restaurant")
-	player = restaurant.get_node("Player")
-	eye_corner_ghost = restaurant.get_node("EyeCornerGhost")
-
-
 func spawn_item(prefab: PackedScene, pos: Vector3 = Vector3(0, 0, 0)) -> Node:
 	var item = prefab.instantiate()
 	restaurant.add_child(item)
@@ -33,7 +27,7 @@ func _on_respawn_eye_corner_ghost_timer_timeout() -> void:
 	if player.global_position.distance_to(eye_corner_ghost.global_position) < SAFE_SPAWN_CHECK_DISTANCE:
 		eye_corner_ghost_timer.start(1)
 		return
-		
+
 	eye_corner_ghost.despawned = false
 	eye_corner_ghost.visible = true
 	eye_corner_ghost.can_be_seen = true
@@ -45,4 +39,5 @@ func reset_state():
 	player = restaurant.get_node("Player")
 	eye_corner_ghost = restaurant.get_node("EyeCornerGhost")
 	eye_corner_ghost_timer.stop()
-	
+	despawn_eye_corner_ghost()
+	eye_corner_ghost_timer.start(1)

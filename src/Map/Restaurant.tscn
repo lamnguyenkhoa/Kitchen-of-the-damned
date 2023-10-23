@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://c85xh3adubff8"]
+[gd_scene load_steps=26 format=3 uid="uid://c85xh3adubff8"]
 
+[ext_resource type="Script" path="res://src/Map/restaurant.gd" id="1_iqhgr"]
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="3_ycdsl"]
 [ext_resource type="PackedScene" uid="uid://xulojom3ruro" path="res://src/Food/Cheese/Cheese.tscn" id="4_c7b80"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://src/Player/Player.tscn" id="4_le3v1"]
@@ -23,14 +24,14 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_thyy4"]
 
-[sub_resource type="Sky" id="Sky_ivwug"]
+[sub_resource type="Sky" id="Sky_65oxe"]
 sky_material = SubResource("ProceduralSkyMaterial_thyy4")
 
 [sub_resource type="Environment" id="Environment_4bfw8"]
 background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
 background_energy_multiplier = 0.15
-sky = SubResource("Sky_ivwug")
+sky = SubResource("Sky_65oxe")
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.1
@@ -47,6 +48,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 agent_height = 2.0
 
 [node name="Restaurant" type="Node3D"]
+script = ExtResource("1_iqhgr")
 
 [node name="Player" parent="." instance=ExtResource("4_le3v1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.845, 1.7, 18.218)
@@ -70,7 +72,6 @@ shadow_enabled = true
 
 [node name="Roof" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 4.2, -3.491)
-visible = false
 mesh = SubResource("BoxMesh_q6syv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof"]

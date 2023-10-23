@@ -40,7 +40,7 @@ func _input(event):
 func add_character_to_screen(character: String):
 	if phone.battery <= 0:
 		return
-		
+
 	if len(phone.screen_label.text) >= 18:
 		phone.screen_label.text = phone.screen_label.text.erase(0, 1)
 	phone.screen_label.text += character

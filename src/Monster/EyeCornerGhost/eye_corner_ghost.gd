@@ -6,11 +6,11 @@ extends Monster
 
 var roam_nodes: Array[Marker3D] = []
 var roam_node_idx = 0
-var despawned = false
+var despawned = true
 var ghost_material: StandardMaterial3D
 var can_be_seen = false
 
-const ANGLE_THRESHOLD = 35
+const ANGLE_THRESHOLD = 40
 const DEFAULT_GHOST_MATERIAL_ALPHA = 1
 const DAMAGE = 50
 
@@ -21,7 +21,11 @@ func _ready():
 	call_deferred("actor_setup")
 	ghost_material = ghost_mesh.mesh.surface_get_material(0)
 
+
 func _process(delta: float) -> void:
+	if GameManager.player == null or despawned:
+		return
+
 	var monster_dir = global_position - GameManager.player.global_position
 	var look_dir = GameManager.player.get_look_direction()
 	var look_angle = rad_to_deg(monster_dir.angle_to(look_dir))
@@ -35,6 +39,9 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta):
+	if despawned:
+		return
+
 	if navigation_agent.is_navigation_finished():
 		roam_node_idx += 1
 		if roam_node_idx >= len(roam_nodes):
@@ -57,6 +64,7 @@ func actor_setup():
 func _on_ghost_area_body_entered(body:Node3D) -> void:
 	if despawned:
 		return
+		
 	if body is FPSPlayer:
 		GameManager.player.damaged(DAMAGE)
 		GameManager.call_deferred("despawn_eye_corner_ghost")
