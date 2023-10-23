@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c85xh3adubff8"]
+[gd_scene load_steps=25 format=3 uid="uid://c85xh3adubff8"]
 
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="3_ycdsl"]
 [ext_resource type="PackedScene" uid="uid://xulojom3ruro" path="res://src/Food/Cheese/Cheese.tscn" id="4_c7b80"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://jqf5vseqey31" path="res://asset/bgm/Horror Ambiance (Royalty Free).ogg" id="12_l5hku"]
 [ext_resource type="PackedScene" uid="uid://dmjhdm3dkpnuu" path="res://src/Props/Oven/Oven.tscn" id="13_ut8mt"]
 [ext_resource type="PackedScene" uid="uid://buffssqfel1wc" path="res://src/Item/Plate/Plate.tscn" id="14_ydki5"]
+[ext_resource type="PackedScene" uid="uid://c0ga36d3eni5" path="res://src/Props/TrashBin/TrashBin.tscn" id="17_vcg8f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0l5"]
 size = Vector3(100, 1, 100)
@@ -48,7 +49,7 @@ agent_height = 2.0
 [node name="Restaurant" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("4_le3v1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.455, 2, 14.718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.845, 1.7, 18.218)
 
 [node name="FloorStaticBody" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 19)
@@ -208,3 +209,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 1, -2)
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_l5hku")
 bus = &"BGM"
+
+[node name="TrashBin" parent="." instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 16)
