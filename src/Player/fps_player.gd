@@ -230,8 +230,6 @@ func damaged(amount: int):
 
 func game_over():
 	print("GameOver")
-	screen_flash.visible = false
-	slash_vfx.visible = false
 	interact_label.visible = false
 	gameover_screen.visible = true
 	died = true
