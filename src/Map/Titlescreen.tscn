@@ -91,47 +91,58 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Titlescreen"]
+[node name="Label1" type="Label" parent="CanvasLayer/Titlescreen"]
+modulate = Color(1, 0.00784314, 0, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -276.5
-offset_top = 34.0
-offset_right = 276.5
-offset_bottom = 106.0
+offset_left = -236.0
+offset_top = 28.0
+offset_right = 201.0
+offset_bottom = 196.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 120
+text = "Kitchen"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Titlescreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_top = 126.0
+offset_right = 290.5
+offset_bottom = 198.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
-text = "Kitchen of the damned"
+text = "of the damned"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Titlescreen"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -83.5
-offset_top = 76.0
-offset_right = 83.5
-offset_bottom = 234.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = -158.0
+offset_right = 219.0
+grow_vertical = 0
+theme_override_constants/separation = 10
 
 [node name="StartButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 26
 text = "Start game"
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 26
 text = "Setting"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 26
 text = "Quit
 "
 
