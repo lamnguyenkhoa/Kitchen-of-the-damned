@@ -76,111 +76,13 @@ shadow_enabled = true
 
 [node name="Roof" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 6.2, -3.491)
+visible = false
 mesh = SubResource("BoxMesh_q6syv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Roof/StaticBody3D"]
 shape = SubResource("BoxShape3D_4x64g")
-
-[node name="PropHolder" type="Node3D" parent="."]
-
-[node name="CheeseCrate" parent="PropHolder" instance=ExtResource("5_jvtvv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -9)
-
-[node name="ChoppingBoard" parent="PropHolder" instance=ExtResource("7_0kmde")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.5, -21.8)
-
-[node name="ChoppingBoard2" parent="PropHolder" instance=ExtResource("7_0kmde")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -18.6, 1.5, -19)
-
-[node name="ElectricSocket" parent="PropHolder" instance=ExtResource("9_vsaf6")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.3, 1, 16.7)
-
-[node name="ElectricSocket2" parent="PropHolder" instance=ExtResource("9_vsaf6")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 7.69999, 2, -2.7)
-
-[node name="ElectricSocket3" parent="PropHolder" instance=ExtResource("9_vsaf6")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 48.7, 2, -6.50001)
-
-[node name="ElectricSocket4" parent="PropHolder" instance=ExtResource("9_vsaf6")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -4.70001, 1, -15)
-
-[node name="ElectricSocket5" parent="PropHolder" instance=ExtResource("9_vsaf6")]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -26.7, 1, 6.67572e-06)
-
-[node name="Oven" parent="PropHolder" instance=ExtResource("13_ut8mt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, -21.7)
-
-[node name="Oven2" parent="PropHolder" instance=ExtResource("13_ut8mt")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.5, 0.5, -8.3)
-
-[node name="RedDoor" parent="PropHolder" instance=ExtResource("12_jcng2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.5, 21.1)
-
-[node name="RedDoor2" parent="PropHolder" instance=ExtResource("12_jcng2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.2, 0.5, -31.8)
-
-[node name="RedDoor3" parent="PropHolder" instance=ExtResource("12_jcng2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2, 0.5, -27.2)
-
-[node name="TrashBin" parent="PropHolder" instance=ExtResource("17_vcg8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 6)
-
-[node name="TrashBin5" parent="PropHolder" instance=ExtResource("17_vcg8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 6)
-
-[node name="TrashBin2" parent="PropHolder" instance=ExtResource("17_vcg8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -16)
-
-[node name="TrashBin3" parent="PropHolder" instance=ExtResource("17_vcg8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 1, -16)
-
-[node name="TrashBin4" parent="PropHolder" instance=ExtResource("17_vcg8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 1, 1)
-
-[node name="BurgerCrate" parent="PropHolder" instance=ExtResource("9_5nxec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -13)
-
-[node name="LettuceCrate" parent="PropHolder" instance=ExtResource("10_fnu2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -17)
-
-[node name="SteakCrate" parent="PropHolder" instance=ExtResource("11_2h4nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -21)
-
-[node name="TomatoCrate" parent="PropHolder" instance=ExtResource("12_mao37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -25)
-
-[node name="OnionCrate" parent="PropHolder" instance=ExtResource("13_654ei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -29)
-
-[node name="PlateRack" parent="PropHolder" instance=ExtResource("18_ynk4i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, 1.5, -22)
-
-[node name="PlateRack2" parent="PropHolder" instance=ExtResource("18_ynk4i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.5, 1.5, -15)
-
-[node name="PotatoCrate" parent="PropHolder" instance=ExtResource("20_fch5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -33)
-
-[node name="Completed_SteakWithFries" parent="PropHolder" instance=ExtResource("19_3h85j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3, 1.5, 13.2)
-
-[node name="Completed_CapreseSalad" parent="PropHolder" instance=ExtResource("17_l1577")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 14.4)
-
-[node name="RecipePaperSteakWithFries" parent="PropHolder" instance=ExtResource("22_5owes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4, 1.5, 13.8)
-instruction = "Steak with fries recipe:
-1 Cooked Steak
-1 Baked potato pieces"
-
-[node name="RecipePaperCapreseSalad" parent="PropHolder" instance=ExtResource("22_5owes")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 10.6929, 1.5, 13.0929)
-instruction = "Caprese Salad recipe:
-3 Cheese slices
-3 Tomato slices
-3 Lettuce slices"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nxuf7")
@@ -231,6 +133,105 @@ data = {
 "cells": PackedInt32Array(2, 65518, 655456, 5, 65518, 91, 8, 65518, 91, 2, 65522, 97, 5, 65522, 91, 8, 65522, 91, 2, 65514, 87, 4, 65514, 87, 6, 65514, 87, 8, 65514, 82, 10, 65514, 84, 12, 65514, 87, 21, 65518, 655456, 15, 65522, 655451, 18, 65522, 655451, 21, 65522, 96, 27, 65521, 1441886, 27, 65524, 1441886, 18, 65514, 655483, 20, 65514, 87, 22, 65514, 87, 3, 65513, 74, 131098, 65513, 119, 13, 65528, 655486, 11, 65528, 655447, 9, 65528, 655447, 22, 65528, 655418, 24, 65528, 655420, 11, 25, 1441922, 16, 25, 1441922, 21, 25, 1441922, 26, 25, 1441922, 25, 14, 1441924, 25, 20, 1441924, 17, 20, 1441924, 17, 14, 1441924, 10, 20, 1441924, 10, 14, 1441924, 12, 25, 1441795, 9, 25, 1048579, 16, 24, 3, 16, 27, 655363, 20, 25, 1048579, 11, 16, 655364, 15, 21, 1048580, 16, 18, 4, 19, 13, 1441796, 15, 14, 1048580, 10, 22, 655364, 8, 19, 1048580, 19, 20, 1441796, 65523, 2, 655418, 65519, 2, 655418, 65515, 2, 655418, 65511, 2, 655418, 65521, 65503, 1048582, 65518, 65503, 1048582, 65515, 65503, 1048582, 65517, 65517, 1048670, 25, 65535, 91, 6, 65534, 88, 8, 65534, 88, 10, 65534, 88, 12, 65534, 88, 7, 3, 94, 10, 3, 94, 14, 65534, 95, 19, 3, 1441885, 47, 65531, 1441887, 47, 65533, 1441887, 47, 5, 1441887, 47, 7, 1441887, 0, 1, 1441883, 11, 65518, 655451, 65517, 65522, 1441886, 65517, 65512, 1441886, 27, 24, 5, 25, 26, 5, 22, 25, 1441795, 23, 19, 1048580, 23, 21, 1048580, 26, 18, 4, 24, 16, 655364, 27, 13, 1441796, 15, 65528, 655483, 14, 65514, 87, 5, 65514, 77, 10, 65529, 655434, 8, 65529, 655437, 22, 65513, 77, 65549, 65529, 655382)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="PropHolder" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="CheeseCrate" parent="NavigationRegion3D/PropHolder" instance=ExtResource("5_jvtvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -9)
+
+[node name="ChoppingBoard" parent="NavigationRegion3D/PropHolder" instance=ExtResource("7_0kmde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.5, -21.8)
+
+[node name="ChoppingBoard2" parent="NavigationRegion3D/PropHolder" instance=ExtResource("7_0kmde")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -18.6, 1.5, -19)
+
+[node name="ElectricSocket" parent="NavigationRegion3D/PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.3, 1, 16.7)
+
+[node name="ElectricSocket2" parent="NavigationRegion3D/PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 7.69999, 2, -2.7)
+
+[node name="ElectricSocket3" parent="NavigationRegion3D/PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 48.7, 2, -6.50001)
+
+[node name="ElectricSocket4" parent="NavigationRegion3D/PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -4.70001, 1, -15)
+
+[node name="ElectricSocket5" parent="NavigationRegion3D/PropHolder" instance=ExtResource("9_vsaf6")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -26.7, 1, 6.67572e-06)
+
+[node name="Oven" parent="NavigationRegion3D/PropHolder" instance=ExtResource("13_ut8mt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, -21.7)
+
+[node name="Oven2" parent="NavigationRegion3D/PropHolder" instance=ExtResource("13_ut8mt")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.5, 0.5, -8.3)
+
+[node name="RedDoor" parent="NavigationRegion3D/PropHolder" instance=ExtResource("12_jcng2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.5, 21.1)
+
+[node name="RedDoor2" parent="NavigationRegion3D/PropHolder" instance=ExtResource("12_jcng2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.2, 0.5, -31.8)
+
+[node name="RedDoor3" parent="NavigationRegion3D/PropHolder" instance=ExtResource("12_jcng2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2, 0.5, -27.2)
+
+[node name="TrashBin" parent="NavigationRegion3D/PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 6)
+
+[node name="TrashBin5" parent="NavigationRegion3D/PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 6)
+
+[node name="TrashBin2" parent="NavigationRegion3D/PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -16)
+
+[node name="TrashBin3" parent="NavigationRegion3D/PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 1, -16)
+
+[node name="TrashBin4" parent="NavigationRegion3D/PropHolder" instance=ExtResource("17_vcg8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 1, 1)
+
+[node name="BurgerCrate" parent="NavigationRegion3D/PropHolder" instance=ExtResource("9_5nxec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -13)
+
+[node name="LettuceCrate" parent="NavigationRegion3D/PropHolder" instance=ExtResource("10_fnu2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -17)
+
+[node name="SteakCrate" parent="NavigationRegion3D/PropHolder" instance=ExtResource("11_2h4nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -21)
+
+[node name="TomatoCrate" parent="NavigationRegion3D/PropHolder" instance=ExtResource("12_mao37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -25)
+
+[node name="OnionCrate" parent="NavigationRegion3D/PropHolder" instance=ExtResource("13_654ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -29)
+
+[node name="PlateRack" parent="NavigationRegion3D/PropHolder" instance=ExtResource("18_ynk4i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, 1.5, -22)
+
+[node name="PlateRack2" parent="NavigationRegion3D/PropHolder" instance=ExtResource("18_ynk4i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.5, 1.5, -15)
+
+[node name="PotatoCrate" parent="NavigationRegion3D/PropHolder" instance=ExtResource("20_fch5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -33)
+
+[node name="Completed_SteakWithFries" parent="NavigationRegion3D/PropHolder" instance=ExtResource("19_3h85j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3, 1.5, 13.2)
+
+[node name="Completed_CapreseSalad" parent="NavigationRegion3D/PropHolder" instance=ExtResource("17_l1577")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 14.4)
+
+[node name="RecipePaperSteakWithFries" parent="NavigationRegion3D/PropHolder" instance=ExtResource("22_5owes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4, 1.5, 13.8)
+instruction = "Steak with fries recipe:
+1 Cooked Steak
+1 Baked potato pieces"
+
+[node name="RecipePaperCapreseSalad" parent="NavigationRegion3D/PropHolder" instance=ExtResource("22_5owes")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 10.6929, 1.5, 13.0929)
+instruction = "Caprese Salad recipe:
+3 Cheese slices
+3 Tomato slices
+3 Lettuce slices"
 
 [node name="EyeCornerGhost" parent="." node_paths=PackedStringArray("roam_node_group") instance=ExtResource("11_60olr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.7, -27)
