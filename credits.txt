@@ -4,6 +4,6 @@ Evil growl sfx: https://www.youtube.com/watch?v=4EGgEvkHad0&list=PLbQKxNSwe22eyS
 Ghost jumpscare sfx: https://www.youtube.com/watch?v=SpvkvVRtL7Q
 Sound Manager: ChewieCB
 Eye corner ghost model: https://sketchfab.com/3d-models/ghost-0120186d38864843b7cee70536185083
-
+Footstep: https://freesound.org/people/JamGrif/sounds/554380/
 TODO:
 Transition horror sfx: https://www.youtube.com/watch?v=HXdl9dMhCcY

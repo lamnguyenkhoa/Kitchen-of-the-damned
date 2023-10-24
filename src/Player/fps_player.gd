@@ -12,6 +12,7 @@ class_name FPSPlayer
 @onready var head = $Head
 @onready var stand_collision: CollisionShape3D = $StandCollision
 @onready var crouch_collision: CollisionShape3D = $CrouchCollision
+@onready var footstep_sfx: AudioStreamPlayer3D = $FootstepSFX
 
 @onready var interact_label: Label = $CanvasLayer/InteractLabel
 @onready var slash_vfx: TextureRect = $CanvasLayer/Slash
@@ -41,6 +42,7 @@ const BASE_SPEED = 5.0
 const CROUCH_SPEED_MUL_MODIFIER = 0.5
 const JUMP_VELOCITY = 4.5
 const THROW_STRENGTH = 15
+const CROUCH_SOUND_DB = -30
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -50,6 +52,9 @@ func _ready():
 	aim_ray.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	update_control_label()
+
+	footstep_sfx.play()
+	footstep_sfx.stream_paused = true
 
 
 func _physics_process(delta):
@@ -88,6 +93,14 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_movespeed)
 		velocity.z = move_toward(velocity.z, 0, current_movespeed)
+
+	if velocity.length_squared() == 0:
+		footstep_sfx.stream_paused = true
+	else:
+		footstep_sfx.stream_paused = false
+
+	if not is_on_floor():
+		footstep_sfx.stream_paused = true
 
 	# Look at pickup-able item
 	if aim_ray.is_colliding() and not is_inspecting:
@@ -140,11 +153,13 @@ func crouch():
 		stand_collision.disabled = false
 		crouch_collision.disabled = true
 		is_crouching = false
+		footstep_sfx.volume_db = 0
 	else:
 		tween.tween_property(head, "position:y", -0.7, 0.25)
 		stand_collision.disabled = true
 		crouch_collision.disabled = false
 		is_crouching = true
+		footstep_sfx.volume_db = CROUCH_SOUND_DB
 
 func get_look_direction() -> Vector3:
 	var direction = -camera.get_global_transform().basis.z

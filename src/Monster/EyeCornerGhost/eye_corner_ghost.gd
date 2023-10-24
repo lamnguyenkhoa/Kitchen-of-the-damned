@@ -3,13 +3,13 @@ extends Monster
 @export var roam_node_group: Node3D
 @export var jumpscare_sound: AudioStream
 @export var ghost_mesh: MeshInstance3D
+@export var roam_node_idx: int = 0
 
 @onready var respawn_timer: Timer = $RespawnTimer
 @onready var growl_sfx: AudioStreamPlayer3D = $GrowlSFX
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
 var roam_nodes: Array[Marker3D] = []
-var roam_node_idx = 0
 var despawned = true
 var ghost_material: StandardMaterial3D
 var can_be_seen = false
