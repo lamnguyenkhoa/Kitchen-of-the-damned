@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ScreamJam23"
+config/name="Kitchen of the damned"
 run/main_scene="res://src/Map/Titlescreen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 

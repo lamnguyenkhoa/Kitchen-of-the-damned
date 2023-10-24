@@ -124,6 +124,7 @@ theme_override_font_sizes/font_size = 30
 text = "Start game"
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Setting"
