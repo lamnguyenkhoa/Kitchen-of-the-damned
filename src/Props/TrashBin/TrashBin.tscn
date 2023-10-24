@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0ga36d3eni5"]
+[gd_scene load_steps=7 format=3 uid="uid://c0ga36d3eni5"]
 
 [ext_resource type="Script" path="res://src/Props/TrashBin/trash_bin.gd" id="1_50r27"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrolm"]
+emission_enabled = true
+emission = Color(0.286275, 0.286275, 0.286275, 1)
+emission_energy_multiplier = 0.1
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_84ptv"]
+material = SubResource("StandardMaterial3D_rrolm")
 top_radius = 0.6
 height = 1.0
 

@@ -1,4 +1,5 @@
 extends Item
+class_name Plate
 
 @onready var food_pos: Marker3D = $FoodPos
 

@@ -230,8 +230,9 @@ func damaged(amount: int):
 
 func game_over():
 	print("GameOver")
+	var tween = get_tree().create_tween()
+	tween.tween_property(gameover_screen, "modulate:a", 1, 2)
 	interact_label.visible = false
-	gameover_screen.visible = true
 	died = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 

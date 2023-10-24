@@ -8,6 +8,8 @@ func interact():
     if item is Food:
         var food_item = item as Food
         player.destroy_current_holding_item()
+    if item is Plate:
+        player.destroy_current_holding_item()
 
 
 func get_interact_label_text() -> String:
@@ -19,5 +21,7 @@ func get_interact_label_text() -> String:
     if item is Food:
         var food_item = item as Food
         return "Discard " + food_item.food_name
+    if item is Plate:
+        return "Discard plate"
 
-    return "Discard food (item not food)"
+    return "Discard item (item can't be discarded)"

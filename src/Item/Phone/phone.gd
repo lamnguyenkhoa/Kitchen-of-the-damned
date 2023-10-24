@@ -56,6 +56,7 @@ func no_battery_shutdown():
 	time_label.visible = false
 	screen_label.text = ""
 	transcript_label.visible = false
+	flashlight_battery_timer.paused = true
 
 func has_battery_startup():
 	phone_light.visible = true
@@ -65,6 +66,4 @@ func has_battery_startup():
 
 func _on_flashlight_battery_timer_timeout() -> void:
 	battery -= 1
-	if battery > 0:
-		flashlight_battery_timer.start()
 

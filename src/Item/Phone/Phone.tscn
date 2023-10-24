@@ -151,7 +151,6 @@ omni_shadow_mode = 0
 
 [node name="FlashlightBatteryTimer" type="Timer" parent="."]
 wait_time = 5.0
-one_shot = true
 
 [node name="Flashlight" type="SpotLight3D" parent="."]
 transform = Transform3D(0.939693, 0.029809, 0.340719, 0, 0.996195, -0.0871557, -0.34202, 0.0818996, 0.936117, 0, 0.72891, -0.246432)
