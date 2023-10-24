@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://7gv6q50fuutj"]
+[gd_scene load_steps=11 format=3 uid="uid://7gv6q50fuutj"]
 
 [ext_resource type="Script" path="res://src/Player/fps_player.gd" id="1_sy51s"]
 [ext_resource type="PackedScene" uid="uid://bvbdwb4mdybul" path="res://src/Item/Phone/Phone.tscn" id="2_si6t8"]
 [ext_resource type="Texture2D" uid="uid://c8miexpdd22mf" path="res://asset/sprites/square.png" id="3_m4lx3"]
 [ext_resource type="Texture2D" uid="uid://d148jfbwbx0sl" path="res://asset/sprites/circle.png" id="4_bwy3k"]
 [ext_resource type="Texture2D" uid="uid://dgx3gbuf5ntdm" path="res://asset/sprites/slash.png" id="4_xpiuo"]
+[ext_resource type="PackedScene" uid="uid://dtmqdu3m5tosm" path="res://src/UI/SettingMenu.tscn" id="6_jm0do"]
 [ext_resource type="AudioStream" uid="uid://m30ernprshph" path="res://asset/sfx/554380__jamgrif__concretefootsteps.ogg" id="6_k683g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
@@ -270,6 +271,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 26
 text = "Play again"
+
+[node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("6_jm0do")]
+visible = false
 
 [node name="PlayerSurroundLight" type="OmniLight3D" parent="."]
 light_color = Color(0.364706, 0.537255, 0.54902, 1)

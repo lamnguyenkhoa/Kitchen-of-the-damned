@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://crhq0c0q37d7p"]
+[gd_scene load_steps=21 format=3 uid="uid://crhq0c0q37d7p"]
 
 [ext_resource type="MeshLibrary" uid="uid://uutgoc4olpnm" path="res://src/Map/KitchenMeshLibrary.tres" id="1_iwrfq"]
 [ext_resource type="Script" path="res://src/Map/titlescreen.gd" id="1_rnxcr"]
@@ -7,6 +7,7 @@
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="2_ghc1l"]
 [ext_resource type="Texture2D" uid="uid://bj7lauuqxnjm0" path="res://asset/sprites/flashlight-icon.png" id="2_resab"]
 [ext_resource type="PackedScene" uid="uid://mbu24mytr3fi" path="res://src/Props/Door/RedDoor.tscn" id="3_5baqw"]
+[ext_resource type="PackedScene" uid="uid://dtmqdu3m5tosm" path="res://src/UI/SettingMenu.tscn" id="3_313ec"]
 [ext_resource type="PackedScene" uid="uid://dmjhdm3dkpnuu" path="res://src/Props/Oven/Oven.tscn" id="4_dtl1b"]
 [ext_resource type="AudioStream" uid="uid://jqf5vseqey31" path="res://asset/bgm/Horror Ambiance (Royalty Free).ogg" id="7_i7jgq"]
 
@@ -78,6 +79,7 @@ _data = {
 }
 
 [node name="Titlescreen" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_rnxcr")
 scene_after_start = ExtResource("2_450va")
 
@@ -124,18 +126,18 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 52.0
-offset_top = -158.0
+offset_top = -179.0
 offset_right = 219.0
+offset_bottom = -21.0
 grow_vertical = 0
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="StartButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Start game"
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
-visible = false
+[node name="SettingButton" type="Button" parent="CanvasLayer/Titlescreen/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Setting"
@@ -146,11 +148,19 @@ theme_override_font_sizes/font_size = 26
 text = "Quit
 "
 
-[node name="SettingMenu" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("3_313ec")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -68.0
+offset_right = 197.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.770202, 0.0821413, -0.632488, 1.28516e-11, 0.991672, 0.128789, 0.6378, -0.0991932, 0.763788, 3.85271, 2.43109, -16.1236)
@@ -371,11 +381,10 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_i7jgq")
-volume_db = -5.0
 autoplay = true
 bus = &"BGM"
 
 [connection signal="pressed" from="CanvasLayer/Titlescreen/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Titlescreen/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Titlescreen/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Titlescreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="Camera3D/Phone/FlashlightBatteryTimer" to="Camera3D/Phone" method="_on_flashlight_battery_timer_timeout" flags=18]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtmqdu3m5tosm"]
+
+[ext_resource type="Texture2D" uid="uid://c8miexpdd22mf" path="res://asset/sprites/square.png" id="1_3k04k"]
+[ext_resource type="Script" path="res://src/UI/setting_menu.gd" id="1_t44ky"]
+
+[node name="SettingMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 388.0
+offset_top = 238.0
+offset_right = 782.0
+offset_bottom = 480.0
+script = ExtResource("1_t44ky")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.556863)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3k04k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Setting"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -78.0
+offset_right = 190.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="FullscreenControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/FullscreenControl"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 31.0
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckButton" parent="VBoxContainer/FullscreenControl"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 9.0
+offset_right = 153.0
+offset_bottom = 33.0
+
+[node name="BGMControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/BGMControl"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 31.0
+text = "BGM
+"
+
+[node name="BGM_HSlider" type="HSlider" parent="VBoxContainer/BGMControl"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 9.0
+offset_right = 369.0
+offset_bottom = 25.0
+
+[node name="SFXControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SFXControl"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 31.0
+text = "SFX"
+
+[node name="SFX_HSlider" type="HSlider" parent="VBoxContainer/SFXControl"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 9.0
+offset_right = 369.0
+offset_bottom = 25.0
+
+[node name="UIControl" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/UIControl"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 31.0
+text = "UI"
+
+[node name="UI_HSlider" type="HSlider" parent="VBoxContainer/UIControl"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 9.0
+offset_right = 369.0
+offset_bottom = 25.0
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -37.0
+offset_right = 25.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/FullscreenControl/FullscreenToggle" to="." method="_on_fullscreen_toggle_pressed"]
+[connection signal="value_changed" from="VBoxContainer/BGMControl/BGM_HSlider" to="." method="_on_bgm_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXControl/SFX_HSlider" to="." method="_on_sfx_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/UIControl/UI_HSlider" to="." method="_on_ui_h_slider_value_changed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

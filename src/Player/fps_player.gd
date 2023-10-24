@@ -218,7 +218,7 @@ func destroy_current_holding_item():
 	item.queue_free()
 
 func update_control_label():
-	control_label.text = "E: Interact | C: Crouch"
+	control_label.text = "Esc: Setting | E: Interact | C: Crouch"
 	if phone_holder.get_child_count() == 1:
 		control_label.text += " | Tab: Phone | F: Flashlight"
 	if is_holding_item:
