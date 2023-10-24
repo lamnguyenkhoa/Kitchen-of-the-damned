@@ -76,7 +76,6 @@ shadow_enabled = true
 
 [node name="Roof" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.921, 6.2, -3.491)
-visible = false
 mesh = SubResource("BoxMesh_q6syv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof"]
