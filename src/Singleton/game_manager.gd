@@ -5,10 +5,11 @@ extends Node
 var restaurant: Node3D
 var player: FPSPlayer
 var eye_corner_ghost: Monster
-var completed_dish = 0
+var n_dish_completed = 0
 
 const SAFE_SPAWN_CHECK_DISTANCE = 10
 const EYE_CORNER_GHOST_RESPAWN_TIME = 15
+const DISH_REQUIRED_TO_WIN = 2
 
 func spawn_item(prefab: PackedScene, pos: Vector3 = Vector3(0, 0, 0)) -> Node:
 	var item = prefab.instantiate()
@@ -42,4 +43,10 @@ func reset_state():
 	eye_corner_ghost_timer.stop()
 	despawn_eye_corner_ghost()
 	eye_corner_ghost_timer.start(1)
-	completed_dish = 0
+	n_dish_completed = 0
+
+
+func complete_dish():
+	n_dish_completed += 1
+	if n_dish_completed == DISH_REQUIRED_TO_WIN:
+		player.game_win()

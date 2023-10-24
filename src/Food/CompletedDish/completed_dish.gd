@@ -35,7 +35,7 @@ func interact():
 			player.is_holding_item = false
 			mesh_holder.visible = false
 			completed = true
-			GameManager.completed_dish += 1
+			GameManager.complete_dish()
 
 
 func get_interact_label_text() -> String:

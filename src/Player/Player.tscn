@@ -192,13 +192,83 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -42.5
-offset_top = -292.0
+offset_top = -273.0
 offset_right = 42.5
-offset_bottom = -242.0
+offset_bottom = -223.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 26
 text = "Retry"
+
+[node name="WinScreen" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/WinScreen"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_m4lx3")
+
+[node name="Label" type="Label" parent="CanvasLayer/WinScreen"]
+self_modulate = Color(0.0509804, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -75.0
+offset_right = 71.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Completed"
+
+[node name="Label2" type="Label" parent="CanvasLayer/WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.5
+offset_top = -16.0
+offset_right = 333.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "You escaped the restaurant
+Thanks for playing"
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/WinScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -67.5
+offset_top = -271.0
+offset_right = 67.5
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "Play again"
 
 [node name="PlayerSurroundLight" type="OmniLight3D" parent="."]
 light_color = Color(0.364706, 0.537255, 0.54902, 1)
@@ -206,3 +276,4 @@ light_energy = 0.2
 omni_range = 3.0
 
 [connection signal="pressed" from="CanvasLayer/GameoverScreen/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinScreen/RetryButton" to="." method="_on_retry_button_pressed"]

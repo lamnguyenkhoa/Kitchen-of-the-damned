@@ -18,6 +18,8 @@ class_name FPSPlayer
 @onready var screen_flash: TextureRect = $CanvasLayer/ScreenFlash
 @onready var control_label: Label = $CanvasLayer/ControlLabel
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
+@onready var win_screen = $CanvasLayer/WinScreen
+
 
 
 var mouse_sensibility = 1500
@@ -232,6 +234,14 @@ func game_over():
 	print("GameOver")
 	var tween = get_tree().create_tween()
 	tween.tween_property(gameover_screen, "modulate:a", 1, 2)
+	interact_label.visible = false
+	died = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func game_win():
+	print("GameWin")
+	var tween = get_tree().create_tween()
+	tween.tween_property(win_screen, "modulate:a", 1, 2)
 	interact_label.visible = false
 	died = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
