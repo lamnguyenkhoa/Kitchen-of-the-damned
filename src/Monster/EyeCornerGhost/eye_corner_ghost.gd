@@ -2,9 +2,9 @@ extends Monster
 
 @export var roam_node_group: Node3D
 @export var jumpscare_sound: AudioStream
-@export var ghost_mesh: MeshInstance3D
 @export var roam_node_idx: int = 0
 
+@onready var ghost_mesh: MeshInstance3D = $Model/GhostMesh
 @onready var respawn_timer: Timer = $RespawnTimer
 @onready var growl_sfx: AudioStreamPlayer3D = $GrowlSFX
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
@@ -14,8 +14,8 @@ var despawned = true
 var ghost_material: StandardMaterial3D
 var can_be_seen = false
 
-const ANGLE_THRESHOLD = 40
-const DEFAULT_GHOST_MATERIAL_ALPHA = 1
+const ANGLE_THRESHOLD = 48
+const DEFAULT_GHOST_MATERIAL_ALPHA = 0.8
 const DAMAGE = 50
 const RESPAWN_TIME = 15
 const SAFE_SPAWN_CHECK_DISTANCE = 10
@@ -27,21 +27,22 @@ func _ready():
 	roam_nodes.assign(roam_node_group.get_children())
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
-	ghost_material = ghost_mesh.mesh.surface_get_material(0)
-
+	ghost_material = ghost_mesh.mesh.surface_get_material(0).duplicate()
+	ghost_mesh.mesh.surface_set_material(0, ghost_material)
 
 func _process(delta: float) -> void:
 	if GameManager.player == null or despawned:
 		return
 
-	var monster_dir = global_position - GameManager.player.global_position
+	var monster_dir = self.global_position - GameManager.player.global_position
 	var look_dir = GameManager.player.get_look_direction()
 	var look_angle = rad_to_deg(monster_dir.angle_to(look_dir))
 	if look_angle < ANGLE_THRESHOLD:
 		can_be_seen = false
 	else:
 		can_be_seen = true
-	var alpha_perc = remap(look_angle, ANGLE_THRESHOLD, 2 * ANGLE_THRESHOLD, 0.2, DEFAULT_GHOST_MATERIAL_ALPHA)
+	
+	var alpha_perc = remap(look_angle, ANGLE_THRESHOLD, 2 * ANGLE_THRESHOLD, 0.1, DEFAULT_GHOST_MATERIAL_ALPHA)
 	alpha_perc = clamp(alpha_perc, 0, DEFAULT_GHOST_MATERIAL_ALPHA)
 	ghost_material.albedo_color.a = alpha_perc
 

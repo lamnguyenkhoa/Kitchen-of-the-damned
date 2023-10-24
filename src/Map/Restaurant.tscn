@@ -239,21 +239,19 @@ collision_mask = 7
 roam_node_group = NodePath("../EyeCornerRoamNodeGroup")
 move_speed = 2.0
 
-[node name="EyeCornerGhost2" parent="." node_paths=PackedStringArray("roam_node_group", "ghost_mesh") instance=ExtResource("11_60olr")]
+[node name="EyeCornerGhost2" parent="." node_paths=PackedStringArray("roam_node_group") instance=ExtResource("11_60olr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 1.7, 10)
 collision_layer = 8
 collision_mask = 7
 roam_node_group = NodePath("../EyeCornerRoamNodeGroup")
-ghost_mesh = NodePath("../EyeCornerGhost/Model/Sketchfab_model/bcdaa6613af2492d988280bd21f60aed_fbx/RootNode/gh_low_Default/gh_low_Default_fabric_0")
 roam_node_idx = 3
 move_speed = 2.0
 
-[node name="EyeCornerGhost3" parent="." node_paths=PackedStringArray("roam_node_group", "ghost_mesh") instance=ExtResource("11_60olr")]
+[node name="EyeCornerGhost3" parent="." node_paths=PackedStringArray("roam_node_group") instance=ExtResource("11_60olr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1.7, -3)
 collision_layer = 8
 collision_mask = 7
 roam_node_group = NodePath("../EyeCornerRoamNodeGroup")
-ghost_mesh = NodePath("../EyeCornerGhost/Model/Sketchfab_model/bcdaa6613af2492d988280bd21f60aed_fbx/RootNode/gh_low_Default/gh_low_Default_fabric_0")
 roam_node_idx = 5
 move_speed = 2.0
 
