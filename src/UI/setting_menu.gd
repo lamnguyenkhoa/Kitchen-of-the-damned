@@ -4,8 +4,11 @@ extends Control
 @onready var music_volume_slider = $VBoxContainer/BGMControl/BGM_HSlider
 @onready var sfx_volume_slider = $VBoxContainer/SFXControl/SFX_HSlider
 @onready var ui_sfx_volume_slider = $VBoxContainer/UIControl/UI_HSlider
+@onready var mouse_sen_slider = $VBoxContainer/MouseSenControl/MouseSen_HSlider
 
 var old_mouse_mode = Input.MOUSE_MODE_CONFINED
+
+const MOUSE_SENSE_MODIFIER = 5000
 
 func _ready() -> void:
 	music_volume_slider.value = SoundManager.get_music_volume() * 100
@@ -13,6 +16,7 @@ func _ready() -> void:
 	ui_sfx_volume_slider.value = db_to_linear(
 		AudioServer.get_bus_volume_db(AudioServer.get_bus_index("UI"))
 	) * 100
+	mouse_sen_slider.value = GameManager.mouse_sensitivity * MOUSE_SENSE_MODIFIER
 
 func _input(event):
 	if event.is_action_pressed("setting_menu"):
@@ -54,3 +58,7 @@ func _on_fullscreen_toggle_pressed() -> void:
 
 func _on_close_button_pressed() -> void:
 	visible = false
+
+
+func _on_mouse_sen_h_slider_value_changed(value:float) -> void:
+	GameManager.mouse_sensitivity = value / MOUSE_SENSE_MODIFIER

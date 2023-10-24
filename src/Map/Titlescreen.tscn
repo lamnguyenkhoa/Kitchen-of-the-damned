@@ -150,17 +150,10 @@ text = "Quit
 
 [node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("3_313ec")]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -197.0
-offset_top = -68.0
-offset_right = 197.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -257.241
+offset_top = -94.0
+offset_right = 248.76
+offset_bottom = 159.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.770202, 0.0821413, -0.632488, 1.28516e-11, 0.991672, 0.128789, 0.6378, -0.0991932, 0.763788, 3.85271, 2.43109, -16.1236)

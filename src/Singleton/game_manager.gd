@@ -4,6 +4,9 @@ var restaurant: Node3D
 var player: FPSPlayer
 var n_dish_completed = 0
 
+# setting stuff
+var mouse_sensitivity: float = 0.001
+
 const DISH_REQUIRED_TO_WIN = 2
 
 func spawn_item(prefab: PackedScene, pos: Vector3 = Vector3(0, 0, 0)) -> Node:

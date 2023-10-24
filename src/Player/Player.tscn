@@ -274,6 +274,10 @@ text = "Play again"
 
 [node name="SettingMenu" parent="CanvasLayer" instance=ExtResource("6_jm0do")]
 visible = false
+offset_left = -257.241
+offset_top = -60.0
+offset_right = 248.76
+offset_bottom = 193.0
 
 [node name="PlayerSurroundLight" type="OmniLight3D" parent="."]
 light_color = Color(0.364706, 0.537255, 0.54902, 1)

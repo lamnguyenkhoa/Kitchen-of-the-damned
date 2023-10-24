@@ -21,9 +21,6 @@ class_name FPSPlayer
 @onready var gameover_screen = $CanvasLayer/GameoverScreen
 @onready var win_screen = $CanvasLayer/WinScreen
 
-
-
-var mouse_sensibility = 1500
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 var is_inspecting = false
@@ -139,8 +136,8 @@ func _input(event):
 		return
 
 	if event is InputEventMouseMotion and not is_inspecting:
-		rotation.y -= event.relative.x / mouse_sensibility
-		camera.rotation.x -= event.relative.y / mouse_sensibility
+		rotation.y -= event.relative.x * GameManager.mouse_sensitivity
+		camera.rotation.x -= event.relative.y * GameManager.mouse_sensitivity
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
