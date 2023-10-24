@@ -4,6 +4,10 @@ extends Monster
 @export var jumpscare_sound: AudioStream
 @export var ghost_mesh: MeshInstance3D
 
+@onready var respawn_timer: Timer = $RespawnTimer
+@onready var growl_sfx: AudioStreamPlayer3D = $GrowlSFX
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
+
 var roam_nodes: Array[Marker3D] = []
 var roam_node_idx = 0
 var despawned = true
@@ -13,8 +17,12 @@ var can_be_seen = false
 const ANGLE_THRESHOLD = 40
 const DEFAULT_GHOST_MATERIAL_ALPHA = 1
 const DAMAGE = 50
+const RESPAWN_TIME = 15
+const SAFE_SPAWN_CHECK_DISTANCE = 10
 
 func _ready():
+	despawn()
+	respawn_timer.start(1)
 	# Convert Array[Node] to Array[Marker3D]
 	roam_nodes.assign(roam_node_group.get_children())
 	# Make sure to not await during _ready.
@@ -67,5 +75,30 @@ func _on_ghost_area_body_entered(body:Node3D) -> void:
 		
 	if body is FPSPlayer:
 		GameManager.player.damaged(DAMAGE)
-		GameManager.call_deferred("despawn_eye_corner_ghost")
 		SoundManager.play_sound(jumpscare_sound)
+		call_deferred("despawn")
+
+
+
+func despawn():
+	despawned = true
+	visible = false
+	can_be_seen = false
+	respawn_timer.start(RESPAWN_TIME)
+	growl_sfx.stop()
+	collision_shape.disabled = true
+
+
+func respawn():
+	despawned = false
+	visible = true
+	can_be_seen = true
+	growl_sfx.play()
+	collision_shape.disabled = false
+
+func _on_respawn_timer_timeout() -> void:
+	if GameManager.player.global_position.distance_to(global_position) < SAFE_SPAWN_CHECK_DISTANCE:
+		respawn_timer.start(1)
+		return
+
+	respawn()

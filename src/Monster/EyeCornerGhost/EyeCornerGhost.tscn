@@ -134,7 +134,7 @@ transform = Transform3D(1, -3.55271e-15, 3.55271e-15, -3.55271e-15, 1, -1.91069e
 mesh = SubResource("ArrayMesh_f1wcl")
 skeleton = NodePath("")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="GrowlSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_fp8fh")
 autoplay = true
 max_distance = 20.0
@@ -160,4 +160,9 @@ libraries = {
 "": SubResource("AnimationLibrary_y3e1k")
 }
 
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
 [connection signal="body_entered" from="GhostArea" to="." method="_on_ghost_area_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
