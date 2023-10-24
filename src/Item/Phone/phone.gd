@@ -24,7 +24,7 @@ var battery: int = 100 :
 const MAX_BATTERY = 100
 
 func _ready() -> void:
-	battery = 2
+	battery = 50
 	battery_label.text = str(battery) + "%"
 	flashlight_battery_timer.start()
 

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://klvwfk7bq1mj"]
+
+[ext_resource type="Script" path="res://src/Food/food.gd" id="1_g0ddg"]
+[ext_resource type="ArrayMesh" uid="uid://cy5ds64fuvrsy" path="res://addons/kaykit_restaurant_bits/Assets/obj/food_ingredient_carrot_pieces.obj" id="2_5mhoe"]
+[ext_resource type="PackedScene" uid="uid://0lo20imxcs8p" path="res://src/Food/Potato/BakedPotatoPieces.tscn" id="2_dpl63"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oy88t"]
+size = Vector3(0.2, 0.15, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4cwq"]
+albedo_color = Color(0.901961, 0.85098, 0.623529, 1)
+
+[node name="PotatoPieces" type="RigidBody3D" node_paths=PackedStringArray("food_mesh")]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_g0ddg")
+food_name = "Potato pieces"
+food_mesh = NodePath("FoodIngredientCarrotPieces")
+baked_prefab = ExtResource("2_dpl63")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056752, 0.0890434, 0.0290363)
+shape = SubResource("BoxShape3D_oy88t")
+
+[node name="FoodIngredientCarrotPieces" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_o4cwq")
+mesh = ExtResource("2_5mhoe")

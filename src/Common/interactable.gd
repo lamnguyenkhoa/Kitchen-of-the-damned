@@ -1,4 +1,4 @@
-extends PhysicsBody3D
+extends CollisionObject3D
 class_name Interactable
 
 enum InteractableType {

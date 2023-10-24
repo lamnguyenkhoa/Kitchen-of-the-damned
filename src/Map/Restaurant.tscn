@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c85xh3adubff8"]
+[gd_scene load_steps=30 format=3 uid="uid://c85xh3adubff8"]
 
 [ext_resource type="Script" path="res://src/Map/restaurant.gd" id="1_iqhgr"]
 [ext_resource type="MeshLibrary" uid="uid://cwa0t53wov8i" path="res://src/Map/KitchenReference.tres" id="3_ycdsl"]
@@ -16,8 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://dxr4hxs0roq5l" path="res://src/Food/Tomato/TomatoCrate.tscn" id="12_mao37"]
 [ext_resource type="PackedScene" uid="uid://ccvfrsayc7mjb" path="res://src/Food/Onion/OnionCrate.tscn" id="13_654ei"]
 [ext_resource type="PackedScene" uid="uid://dmjhdm3dkpnuu" path="res://src/Props/Oven/Oven.tscn" id="13_ut8mt"]
+[ext_resource type="PackedScene" uid="uid://b7x3wh2jcy4or" path="res://src/Food/CompletedDish/Completed_CapreseSalad.tscn" id="17_l1577"]
 [ext_resource type="PackedScene" uid="uid://c0ga36d3eni5" path="res://src/Props/TrashBin/TrashBin.tscn" id="17_vcg8f"]
 [ext_resource type="PackedScene" uid="uid://unpaiepicrmd" path="res://src/Item/Plate/PlateRack.tscn" id="18_ynk4i"]
+[ext_resource type="PackedScene" uid="uid://s5b5f4my0gqp" path="res://src/Food/CompletedDish/Completed_SteakWithFries.tscn" id="19_3h85j"]
+[ext_resource type="PackedScene" uid="uid://if65un2ve1up" path="res://src/Food/Potato/PotatoCrate.tscn" id="20_fch5t"]
+[ext_resource type="PackedScene" uid="uid://k5typonn0jxw" path="res://src/Item/Recipe/RecipePaper.tscn" id="22_5owes"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0l5"]
 size = Vector3(100, 1, 100)
@@ -155,6 +159,28 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, 1
 
 [node name="PlateRack2" parent="PropHolder" instance=ExtResource("18_ynk4i")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.5, 1.5, -15)
+
+[node name="PotatoCrate" parent="PropHolder" instance=ExtResource("20_fch5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.5, -33)
+
+[node name="Completed_SteakWithFries" parent="PropHolder" instance=ExtResource("19_3h85j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3, 1.5, 13.2)
+
+[node name="Completed_CapreseSalad" parent="PropHolder" instance=ExtResource("17_l1577")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 14.4)
+
+[node name="RecipePaperSteakWithFries" parent="PropHolder" instance=ExtResource("22_5owes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4, 1.5, 13.8)
+instruction = "Steak with fries recipe:
+1 Cooked Steak
+1 Baked potato pieces"
+
+[node name="RecipePaperCapreseSalad" parent="PropHolder" instance=ExtResource("22_5owes")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 10.6929, 1.5, 13.0929)
+instruction = "Caprese Salad recipe:
+3 Cheese slices
+3 Tomato slices
+3 Lettuce slices"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_nxuf7")

@@ -34,3 +34,14 @@ func get_interact_label_text():
 		return "Put " + food_item.food_name + " on plate"
 
 	return "Put food on plate (item not food)"
+
+
+func check_recipe_correct(required_foods: Array[String]) -> bool:
+	var copied_required_foods = required_foods.duplicate()
+	var holding_foods = food_pos.get_children()
+	for food in holding_foods:
+		if food is Food and food.food_name in copied_required_foods:
+			copied_required_foods.erase(food.food_name)
+		else:
+			return false
+	return true

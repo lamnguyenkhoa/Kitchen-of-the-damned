@@ -5,6 +5,7 @@ extends Node
 var restaurant: Node3D
 var player: FPSPlayer
 var eye_corner_ghost: Monster
+var completed_dish = 0
 
 const SAFE_SPAWN_CHECK_DISTANCE = 10
 const EYE_CORNER_GHOST_RESPAWN_TIME = 15
@@ -41,3 +42,4 @@ func reset_state():
 	eye_corner_ghost_timer.stop()
 	despawn_eye_corner_ghost()
 	eye_corner_ghost_timer.start(1)
+	completed_dish = 0
