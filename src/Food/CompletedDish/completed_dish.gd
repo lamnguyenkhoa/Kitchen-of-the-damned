@@ -47,6 +47,9 @@ func get_interact_label_text() -> String:
 		return "Complete " + completed_dish_name + " (hand empty)"
 
 	var item = player.get_current_holding_item()
+	if item is Food:
+		return "Complete " + completed_dish_name + " (you need a Plate)"
+
 	if item is Plate:
 		var plate_item = item as Plate
 		if plate_item.check_recipe_correct(required_foods):

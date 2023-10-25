@@ -37,6 +37,9 @@ func get_interact_label_text():
 
 
 func check_recipe_correct(required_foods: Array[String]) -> bool:
+	if food_pos.get_child_count() == 0:
+		return false
+		
 	var copied_required_foods = required_foods.duplicate()
 	var holding_foods = food_pos.get_children()
 	for food in holding_foods:
