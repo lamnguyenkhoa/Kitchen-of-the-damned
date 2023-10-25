@@ -25,4 +25,4 @@ func reset_state():
 func complete_dish():
 	n_dish_completed += 1
 	if n_dish_completed == DISH_REQUIRED_TO_WIN:
-		player.game_win()
+		player.phone.show_call_transcript("You can leave the restaurant now")

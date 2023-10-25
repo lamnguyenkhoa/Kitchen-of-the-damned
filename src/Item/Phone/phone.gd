@@ -67,3 +67,8 @@ func has_battery_startup():
 func _on_flashlight_battery_timer_timeout() -> void:
 	battery -= 1
 
+
+func show_call_transcript(content: String):
+	transcript_label.text = content
+	transcript_label.visible = true
+
